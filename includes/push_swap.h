@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/07 20:01:48 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/10 03:35:04 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,14 @@
 # define PUSH_SWAP_H
 
 # include "arr.h"
-#include "ft_operation.h"
 
 typedef struct s_push_swap
 {
 	t_array *stack_a;
 	t_array *stack_b;
-	t_array *operation;
-	union
-	{
-		t_operation *op_func[2];
-		struct
-		{
-			t_operation *operations;
-			t_operation *reverse_op;
-		};
-	};
+	t_array *instruction;
 }	t_push_swap;
 
-
-
+void ft_ps_exit(t_push_swap *ps, int exit_val);
+t_array *	ft_clean_op(t_array *instruction);
 #endif

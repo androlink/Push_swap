@@ -6,15 +6,14 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:33 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/07 19:59:26 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/10 03:26:27 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_OPERATION_H
 # define FT_OPERATION_H
 
-#include "arr.h"
-#include "push_swap.h"
+# include "push_swap.h"
 
 typedef enum e_operator
 {
@@ -25,15 +24,11 @@ typedef enum e_operator
 	RA,
 	RB,
 	RRA,
-	RRB
+	RRB,
+	NONE
 }	t_operator;
 
-
-
-typedef void t_operation(t_array*);
-
-int	ft_op_init(t_push_swap *);
-
-t_operation ft_op_swap;
+int	ft_run_op(t_push_swap *ptr, t_operator op);
+int	ft_add_operator(t_push_swap *ps, t_operator op);
 
 #endif
