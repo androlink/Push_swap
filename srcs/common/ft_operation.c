@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:37 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/09 21:53:18 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/15 22:38:37 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int ft_op_revrot(t_array *arr);
 static int ft_op_swap(t_array *arr);
 static int ft_op_push(t_array *arr1, t_array *arr2);
 
-int	ft_run_op(t_push_swap *ptr, t_operator op)
+int	ft_run_op(t_sort *ptr, t_operator op)
 {
 	if (op == SA)
 		return (ft_op_swap(ptr->stack_a));

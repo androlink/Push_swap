@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_quad_insert_with_pivot.h                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/16 01:27:59 by gcros            ###   ########.fr       */
+/*   Created: 2024/01/12 18:01:02 by gcros             #+#    #+#             */
+/*   Updated: 2024/01/12 18:04:54 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_QUAD_INSERT_WITH_PIVOT_H
+# define FT_QUAD_INSERT_WITH_PIVOT_H
 
-# include "arr.h"
-#include "ft_sort.h"
+#include <unistd.h>
 
-
-typedef struct s_push_swap
+typedef struct s_cost
 {
-	t_array	*number_set;
-	t_array	*results;
-}	t_push_swap;
-
-void	ft_ps_exit(int exit_val);
-t_push_swap	*ft_ps_get(void);
-
-t_push_swap	*ft_ps_init(int ac, char **av);
-void	ft_ps_destroy(void);
+	size_t	cost;
+	size_t	index_a;
+	size_t	index_b;
+}	t_cost;
 
 #endif

@@ -20,7 +20,8 @@ CMN_DIR		=	common
 CMN_FILES	=	ft_load.c		\
 				ft_utils.c		\
 				ft_operation.c	\
-				ft_load_utils.c	
+				ft_load_utils.c	\
+				ft_operation_utils.c
 CMN_PATH	=	${addprefix $(CMN_DIR)/, $(CMN_FILES)}
 CMN_SRCS	=	$(CMN_PATH:%=$(SDIR)/%)
 CMN_OBJS	=	$(CMN_PATH:%.c=$(BDIR)/%.o)
@@ -29,8 +30,14 @@ CMN_DEPS	=	$(CMN_PATH:%.c=$(DDIR)/%.d)
 PS_DIR		=	push_swap
 PS_FILES	=	push_swap.c		\
 				ft_radix_sort.c	\
-				ft_new_sort.c	\
-				ft_resolve.c
+				ft_double_insert_sort.c	\
+				ft_resolve.c	\
+				ft_sort_utils.c	\
+				ft_quad_insert_with_pivot.c	\
+				ft_sort_2.c	\
+				ft_sort.c	\
+				ft_push_swap_utils.c	\
+				ft_quad_insert.c
 PS_PATH		=	${addprefix $(PS_DIR)/, $(PS_FILES)}
 PS_SRCS		=	${addprefix $(SDIR)/, $(PS_PATH)}
 PS_OBJS		=	$(PS_PATH:%.c=$(BDIR)/%.o)

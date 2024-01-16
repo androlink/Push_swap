@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/10 10:18:05 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/16 04:38:15 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@
 #include "ft_printf.h"
 #include "ft_operation.h"
 
-void	ft_dumb_b(t_push_swap *ps)
+int	ft_dumb_b(t_sort *ps)
 {
-	while (ps->stack_b->size != 0)
+	while (ps->stack_b->size > 0)
 	{
-		ft_run_op(ps, PA);
-		ft_add_operator(ps, PA);
+		if (ft_run_op(ps, PA))
+			if (ft_add_operator(ps->instruction, PA) == -1)
+				return (-1);
 	}
+	return (1);
+}
+int	ft_dumb_a(t_sort *ps)
+{
+	while (ps->stack_a->size != 0)
+	{
+		if (ft_run_op(ps, PB))
+			if (ft_add_operator(ps->instruction, PB) == -1)
+				return (-1);
+	}
+	return (1);
 }
 
 void	ft_put_stack(t_array *array)
@@ -56,7 +68,7 @@ int	ft_is_sort(t_array *array)
 
 char	*ft_get_op_str(t_operator op)
 {
-	static char *op_list[] = {"sa", "sb", "pa", "pb", "ra", "rb", "rra", "rrb", "__none__"};
+	static char *op_list[] = {"sa", "sb", "pa", "pb", "ra", "rb", "rra", "rrb", "__none__", "ss", "rr", "rrr"};
 
 	return (op_list[op]);
 }
