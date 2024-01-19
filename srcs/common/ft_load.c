@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:06:24 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/10 06:32:16 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/19 17:07:14 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	check_dup(t_array *array);
 
 t_array	*ft_load(int ac, char **av)
 {
-	t_array *array;
+	t_array	*array;
 	int		i;
 
 	i = 0;
@@ -51,7 +51,7 @@ static int	check_dup(t_array *array)
 		while (j < array->size)
 		{
 			if (*((int *)array->data[i]) == *((int *)array->data[j]))
-				return (1);	
+				return (1);
 			j++;
 		}
 		i++;
@@ -64,7 +64,7 @@ static int	fill_value(char *str, t_array *array)
 	char	**strs;
 	int		*value;
 	int		i;
-	
+
 	strs = ft_split(str, ' ');
 	if (strs == NULL)
 		return (-1);
@@ -89,7 +89,7 @@ static int	fill_value(char *str, t_array *array)
 
 static int	*get_value(const char *str)
 {
-	int value;
+	int	value;
 	int	*ret;
 
 	if (!ft_strisnumber(str) || str[0] == '-')

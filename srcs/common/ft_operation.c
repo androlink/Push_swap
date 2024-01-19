@@ -6,16 +6,16 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:37 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/15 22:38:37 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/19 13:13:09 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_operation.h"
 
-static int ft_op_rotate(t_array *arr);
-static int ft_op_revrot(t_array *arr);
-static int ft_op_swap(t_array *arr);
-static int ft_op_push(t_array *arr1, t_array *arr2);
+static int	ft_op_rotate(t_array *arr);
+static int	ft_op_revrot(t_array *arr);
+static int	ft_op_swap(t_array *arr);
+static int	ft_op_push(t_array *arr1, t_array *arr2);
 
 int	ft_run_op(t_sort *ptr, t_operator op)
 {
@@ -38,7 +38,7 @@ int	ft_run_op(t_sort *ptr, t_operator op)
 	return (0);
 }
 
-static int ft_op_rotate(t_array *arr)
+static int	ft_op_rotate(t_array *arr)
 {
 	int	*tmp;
 
@@ -49,7 +49,7 @@ static int ft_op_rotate(t_array *arr)
 	return (1);
 }
 
-static int ft_op_revrot(t_array *arr)
+static int	ft_op_revrot(t_array *arr)
 {
 	int	*tmp;
 
@@ -60,7 +60,7 @@ static int ft_op_revrot(t_array *arr)
 	return (1);
 }
 
-static int ft_op_swap(t_array *arr)
+static int	ft_op_swap(t_array *arr)
 {
 	int	*p;
 
@@ -72,7 +72,7 @@ static int ft_op_swap(t_array *arr)
 	return (1);
 }
 
-static int ft_op_push(t_array *arr1, t_array *arr2)
+static int	ft_op_push(t_array *arr1, t_array *arr2)
 {
 	int	*tmp;
 
@@ -82,5 +82,3 @@ static int ft_op_push(t_array *arr1, t_array *arr2)
 	ft_arr_unshift(arr1, tmp);
 	return (1);
 }
-
-

@@ -37,7 +37,8 @@ PS_FILES	=	push_swap.c		\
 				ft_sort_2.c	\
 				ft_sort.c	\
 				ft_push_swap_utils.c	\
-				ft_quad_insert.c
+				ft_quad_insert.c		\
+				ft_sort_3.c
 PS_PATH		=	${addprefix $(PS_DIR)/, $(PS_FILES)}
 PS_SRCS		=	${addprefix $(SDIR)/, $(PS_PATH)}
 PS_OBJS		=	$(PS_PATH:%.c=$(BDIR)/%.o)
@@ -50,7 +51,7 @@ CK_SRCS		=	${addprefix $(SDIR)/, $(CK_PATH)}
 CK_OBJS		=	$(CK_PATH:%.c=$(BDIR)/%.o)
 CK_DEPS		=	$(CK_PATH:%.c=$(DDIR)/%.d)
 
-LIBFTDIR = libft
+LIBFTDIR = libft-1.0
 LIBFTNAME = ft
 LIBFTAR = libft.a
 LIBFTPATH = $(LIBFTDIR)/$(LIBFTAR)

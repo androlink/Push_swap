@@ -6,14 +6,14 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:01:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/12 18:04:54 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/19 18:04:53 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_QUAD_INSERT_WITH_PIVOT_H
 # define FT_QUAD_INSERT_WITH_PIVOT_H
 
-#include <unistd.h>
+# include <unistd.h>
 
 typedef struct s_cost
 {

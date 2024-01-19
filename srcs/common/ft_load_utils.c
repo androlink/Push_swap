@@ -6,13 +6,11 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 06:09:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/10 06:37:56 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/19 17:06:58 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arr.h"
-#include "ft_printf.h"
-
 
 void	*dup_pint(void *value)
 {

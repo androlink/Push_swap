@@ -6,17 +6,15 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:15:27 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/16 01:46:51 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/19 17:14:27 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "ft_operation.h"
 #include "ft_utils.h"
 
-int ft_radix_sort(t_sort *ps)
+int	ft_radix_sort(t_sort *ps)
 {
-	int	flag;
+	int		flag;
 	size_t	j;
 
 	flag = 1;
@@ -32,11 +30,9 @@ int ft_radix_sort(t_sort *ps)
 						return (-1);
 			}
 			else
-			{
 				if (ft_run_op(ps, PB))
 					if (ft_add_operator(ps->instruction, PB) == -1)
 						return (-1);
-			}
 			j--;
 		}
 		ft_dumb_b(ps);
