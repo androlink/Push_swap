@@ -6,20 +6,11 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 17:14:45 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/21 23:59:21 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_utils.h"
-
-int	ft_add_operator(t_array *instruction, t_operator op)
-{
-	if (instruction->capacity <= instruction->size)
-		if (ft_arr_resize(instruction, instruction->capacity + 100) == -1)
-			return (-1);
-	ft_arr_push(instruction, ft_get_op(op));
-	return (1);
-}
 
 t_array	*ft_merge_op(t_array *inst)
 {
@@ -69,4 +60,26 @@ t_array	*ft_clean_op(t_array *inst)
 		}
 	}
 	return (result);
+}
+
+int	ft_dumb_b(t_sort *ps)
+{
+	while (ps->stack_b->size > 0)
+	{
+		if (ft_run_op(ps, PA))
+			if (ft_add_operator(ps->instruction, PA) == -1)
+				return (-1);
+	}
+	return (1);
+}
+
+int	ft_dumb_a(t_sort *ps)
+{
+	while (ps->stack_a->size != 0)
+	{
+		if (ft_run_op(ps, PB))
+			if (ft_add_operator(ps->instruction, PB) == -1)
+				return (-1);
+	}
+	return (1);
 }

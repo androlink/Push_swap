@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:06:24 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 17:07:14 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/21 21:04:47 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 static int	*get_value(const char *str);
 static int	fill_value(char *str, t_array *array);
-static int	check_dup(t_array *array);
 
 t_array	*ft_load(int ac, char **av)
 {
@@ -34,12 +33,12 @@ t_array	*ft_load(int ac, char **av)
 			return (ft_arr_free(&array, free), NULL);
 		i++;
 	}
-	if (check_dup(array) == 1 || normalizer(&array) == -1)
+	if (ft_check_dup(array) || normalizer(&array) == -1)
 		ft_arr_free(&array, free);
 	return (array);
 }
 
-static int	check_dup(t_array *array)
+int	ft_check_dup(t_array *array)
 {
 	size_t	i;
 	size_t	j;

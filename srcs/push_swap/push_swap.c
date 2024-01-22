@@ -6,23 +6,9 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 20:53:39 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/21 18:13:51 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#define _GNU_SOURCE
- #define _FILE_OFFSET_BITS 64
-#include <sys/time.h>
-#include <sys/resource.h>
-#include <stdlib.h>
-struct rlimit l;
-void init_limit()
-{
-	getrlimit(RLIMIT_AS, &l);
-	l.rlim_cur = 300000;
-	if (setrlimit(RLIMIT_AS, &l) == -1)
-		exit(-1);
-}
 
 #include "ft_utils.h"
 #include "push_swap.h"

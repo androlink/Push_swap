@@ -6,34 +6,12 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 17:09:57 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/21 23:59:36 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arr.h"
 #include "ft_operation.h"
-
-int	ft_dumb_b(t_sort *ps)
-{
-	while (ps->stack_b->size > 0)
-	{
-		if (ft_run_op(ps, PA))
-			if (ft_add_operator(ps->instruction, PA) == -1)
-				return (-1);
-	}
-	return (1);
-}
-
-int	ft_dumb_a(t_sort *ps)
-{
-	while (ps->stack_a->size != 0)
-	{
-		if (ft_run_op(ps, PB))
-			if (ft_add_operator(ps->instruction, PB) == -1)
-				return (-1);
-	}
-	return (1);
-}
 
 int	ft_is_sort(t_array *array)
 {
@@ -55,4 +33,13 @@ char	*ft_get_op_str(t_operator op)
 		"rrb", "__none__", "ss", "rr", "rrr"};
 
 	return (op_list[op]);
+}
+
+int	ft_add_operator(t_array *instruction, t_operator op)
+{
+	if (instruction->capacity <= instruction->size)
+		if (ft_arr_resize(instruction, instruction->capacity + 100) == -1)
+			return (-1);
+	ft_arr_push(instruction, ft_get_op(op));
+	return (1);
 }
