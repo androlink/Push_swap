@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/21 23:59:21 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/23 16:58:00 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,23 @@ t_array	*ft_clean_op(t_array *inst)
 	return (result);
 }
 
-int	ft_dumb_b(t_sort *ps)
+int	ft_dumb_b(t_sort *sort)
 {
-	while (ps->stack_b->size > 0)
+	while (sort->stack_b->size > 0)
 	{
-		if (ft_run_op(ps, PA))
-			if (ft_add_operator(ps->instruction, PA) == -1)
+		if (ft_run_op(sort, PA))
+			if (ft_add_operator(sort->instruction, PA) == -1)
 				return (-1);
 	}
 	return (1);
 }
 
-int	ft_dumb_a(t_sort *ps)
+int	ft_dumb_a(t_sort *sort)
 {
-	while (ps->stack_a->size != 0)
+	while (sort->stack_a->size != 0)
 	{
-		if (ft_run_op(ps, PB))
-			if (ft_add_operator(ps->instruction, PB) == -1)
+		if (ft_run_op(sort, PB))
+			if (ft_add_operator(sort->instruction, PB) == -1)
 				return (-1);
 	}
 	return (1);

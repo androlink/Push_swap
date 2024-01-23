@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 15:37:05 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/23 16:42:20 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_is_sort(t_array *array)
 	i = 0;
 	while (i < array->size - 1)
 	{
-		if (*(int *)array->data[i] > *(int *)array->data[i + 1])
+		if (*(long *)array->data[i] > *(long *)array->data[i + 1])
 			return (0);
 		i++;
 	}

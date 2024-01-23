@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:06:24 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/21 21:04:47 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/23 17:00:31 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "num.h"
 #include "ft_load.h"
 
-static int	*get_value(const char *str);
+static long	*get_value(const char *str);
 static int	fill_value(char *str, t_array *array);
 
 t_array	*ft_load(int ac, char **av)
@@ -49,7 +49,7 @@ int	ft_check_dup(t_array *array)
 		j = i + 1;
 		while (j < array->size)
 		{
-			if (*((int *)array->data[i]) == *((int *)array->data[j]))
+			if (*((long *)array->data[i]) == *((long *)array->data[j]))
 				return (1);
 			j++;
 		}
@@ -61,8 +61,8 @@ int	ft_check_dup(t_array *array)
 static int	fill_value(char *str, t_array *array)
 {
 	char	**strs;
-	int		*value;
-	int		i;
+	long	*value;
+	size_t	i;
 
 	strs = ft_split(str, ' ');
 	if (strs == NULL)
@@ -86,17 +86,15 @@ static int	fill_value(char *str, t_array *array)
 	return (1);
 }
 
-static int	*get_value(const char *str)
+static long	*get_value(const char *str)
 {
-	int	value;
-	int	*ret;
+	long	value;
+	long	*ret;
 
-	if (!ft_strisnumber(str) || str[0] == '-')
+	if (!ft_strisnumber(str))
 		return (NULL);
 	value = ft_atoi(str);
-	if (value == -1)
-		return (NULL);
-	ret = malloc(sizeof(int));
+	ret = malloc(sizeof(long));
 	if (ret != NULL)
 		*ret = value;
 	return (ret);
