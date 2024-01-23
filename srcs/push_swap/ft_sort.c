@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:08:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 18:42:12 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/23 23:36:51 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_array	*ft_sort(t_array *num_set, int (*fsort)(t_sort *))
 			ft_arr_free(&clean_result, NULL);
 		}
 	}
+	*(char *)0 = 0; //TODO refais ta gestion foireuse
 	ft_arr_free(&sort.stack_a, NULL);
 	ft_arr_free(&sort.stack_b, NULL);
 	ft_arr_free(&sort.instruction, NULL);
