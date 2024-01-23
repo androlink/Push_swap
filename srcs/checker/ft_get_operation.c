@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 23:18:36 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/22 01:58:58 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/22 17:31:52 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "str.h"
 #include "ft_printf.h"
 #include "ft_utils.h"
+#include "put.h"
 
 static t_operator	*get_next_operator();
 t_operator str_to_operator(char *strop);
@@ -43,9 +44,10 @@ t_array	*ft_get_operation()
 	tmp = get_next_operator();
 	while (tmp != NULL)
 	{
-		ft_printf("===%s - %d===\n", ft_get_op_str(*tmp), *tmp);
-		if (*tmp == NONE || ft_add_operator(op_list, *tmp) == -1)
+		//ft_printf("===%s - %d===\n", ft_get_op_str(*tmp), *tmp);
+		if (ft_add_operator(op_list, *tmp) == -1)
 		{
+			ft_printf("===%s - %d at %d===\n", ft_get_op_str(*tmp), *tmp, op_list->size - 1);
 			//ft_print_result(op_list);
 			write(2, "NOP\n", 4);
 			ft_arr_free(&op_list, NULL);
@@ -64,6 +66,8 @@ static t_operator	*get_next_operator()
 	str = get_next_line(0);
 	if (str == NULL)
 		return (NULL);
+	(void) str;
+	//ft_putstr_fd(str, 1);
 	tmp = str_to_operator(str);
 	free(str);
 	return (ft_get_op(tmp));
@@ -93,5 +97,6 @@ t_operator str_to_operator(char *strop)
 		return (RR);
 	if (ft_strncmp(strop, "rrr\n", 4) == 0)
 		return (RRR);
+	ft_putstr_fd(strop, 1);
 	return (NONE);
 }
