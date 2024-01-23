@@ -51,7 +51,7 @@ CK_SRCS		=	${addprefix $(SDIR)/, $(CK_PATH)}
 CK_OBJS		=	$(CK_PATH:%.c=$(BDIR)/%.o)
 CK_DEPS		=	$(CK_PATH:%.c=$(DDIR)/%.d)
 
-LIBFTDIR = libft-1.0
+LIBFTDIR = libft-1.1
 LIBFTNAME = ft
 LIBFTAR = libft.a
 LIBFTPATH = $(LIBFTDIR)/$(LIBFTAR)
@@ -67,7 +67,7 @@ checker	:	$(CK_NAME)
 $(PS_NAME)	: lib	$(PS_OBJS) $(CMN_OBJS)
 	$(CC) $(CFLAGS) -o $@ $(PS_OBJS) $(CMN_OBJS) -I $(HDIR)/ $(LIBFTFLAGS)
 
-$(CK_NAME)	:	$(CK_OBJS) $(CMN_OBJS)
+$(CK_NAME)	: lib	$(CK_OBJS) $(CMN_OBJS)
 	$(CC) $(CFLAGS) -o $@ $(CK_OBJS) $(CMN_OBJS) -I $(HDIR)/ $(LIBFTFLAGS)
 
 -include $(CK_DEPS) $(CMN_DEPS) $(PS_DEPS)
