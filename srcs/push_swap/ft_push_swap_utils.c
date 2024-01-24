@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 22:41:05 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/22 00:16:14 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/24 17:05:03 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,18 @@
 #include "ft_load.h"
 #include "put.h"
 
-static t_push_swap	**ft_push_swap(void);
-
-t_push_swap	*ft_ps_init(int ac, char **av)
+t_push_swap	ft_ps_get(int ac, char **av)
 {
-	t_push_swap	*ps;
+	t_push_swap	ps;
 
-	ps = ft_ps_get();
-	if (ps == NULL)
-		return (NULL);
-	ps->results = NULL;
-	ps->number_set = ft_load(ac, av);
-	if (ps->number_set == NULL)
-	{
-		ft_putendl_fd("Error", 2);
-		return (NULL);
-	}
-	ps->results = ft_arr_new(10);
-	if (ps->results == NULL)
-		return (NULL);
+	ps.results = NULL;
+	ps.number_set = ft_load(ac, av);
+	if (ps.number_set == NULL)
+		return (ps);
+	ps.results = ft_arr_new(10);
+	if (ps.results == NULL)
+		ft_arr_free(&ps.number_set, free);
 	return (ps);
-}
-
-t_push_swap	*ft_ps_get(void)
-{
-	t_push_swap	**ps;
-
-	ps = ft_push_swap();
-	if (*ps == NULL)
-		*ps = malloc(sizeof(t_push_swap));
-	return (*ps);
 }
 
 static void	free_ps_result(void *array)
@@ -54,24 +36,12 @@ static void	free_ps_result(void *array)
 	ft_arr_free(&arr, NULL);
 }
 
-void	ft_ps_destroy(void)
+void	ft_ps_free(t_push_swap	*ps)
 {
-	t_push_swap	**ps;
-
-	ps = ft_push_swap();
-	if (*ps == NULL)
-		return ;
-	if ((*ps)->number_set != NULL)
-		ft_arr_free(&(*ps)->number_set, free);
-	if ((*ps)->results != NULL)
-		ft_arr_free(&(*ps)->results, free_ps_result);
-	free(*ps);
-	*ps = NULL;
-}
-
-static t_push_swap	**ft_push_swap(void)
-{
-	static t_push_swap	*ps;
-
-	return (&ps);
+	if (ps->number_set != NULL)
+		ft_arr_free(&ps->number_set, free);
+	if (ps->results != NULL)
+		ft_arr_free(&ps->results, free_ps_result);
+	ps->number_set = NULL;
+	ps->results = NULL;
 }

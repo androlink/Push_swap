@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 16:51:23 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/24 16:46:17 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,38 @@ void	ft_print_best_result(t_array *results);
 
 int	main(int ac, char **av)
 {
-	t_push_swap	*ps;
+	t_push_swap	ps;
 	t_array		*result;
 
 	if (ac < 2)
 		exit (0);
-	ps = ft_ps_init(ac - 1, av + 1);
-	if (ps == NULL)
-		ft_ps_exit(-1);
-	result = ft_sort(ps->number_set, &ft_sort_3);
+	ps = ft_ps_get(ac - 1, av + 1);
+	if (ps.number_set == NULL || ps.results == NULL)
+		ft_ps_exit(&ps, -1);
+	result = ft_sort(ps.number_set, &ft_sort_3);
 	if (result != NULL)
-		ft_arr_push(ps->results, result);
-	result = ft_sort(ps->number_set, &ft_radix_sort);
+		ft_arr_push(ps.results, result);
+	result = ft_sort(ps.number_set, &ft_radix_sort);
 	if (result != NULL)
-		ft_arr_push(ps->results, result);
-	result = ft_sort(ps->number_set, &ft_quad_insert_with_pivot);
+		ft_arr_push(ps.results, result);
+	result = ft_sort(ps.number_set, &ft_quad_insert_with_pivot);
 	if (result != NULL)
-		ft_arr_push(ps->results, result);
-	result = ft_sort(ps->number_set, &ft_quad_insert);
+		ft_arr_push(ps.results, result);
+	result = ft_sort(ps.number_set, &ft_quad_insert);
 	if (result != NULL)
-		ft_arr_push(ps->results, result);
-	result = ft_sort(ps->number_set, &ft_double_insert_sort);
+		ft_arr_push(ps.results, result);
+	result = ft_sort(ps.number_set, &ft_double_insert_sort);
 	if (result != NULL)
-		ft_arr_push(ps->results, result);
-	ft_print_best_result(ps->results);
-	ft_ps_exit(0);
+		ft_arr_push(ps.results, result);
+	ft_print_best_result(ps.results);
+	ft_ps_exit(&ps, 0);
 }
 
-void	ft_ps_exit(int exit_val)
+void	ft_ps_exit(t_push_swap *ps, int exit_val)
 {
-	ft_ps_destroy();
+	ft_ps_free(ps);
+	if (exit_val == -1)
+		ft_printf("Error\n");
 	exit(exit_val);
 }
 

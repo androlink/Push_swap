@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 17:04:38 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/24 16:50:17 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ typedef struct s_push_swap
 	t_array	*results;
 }	t_push_swap;
 
-void		ft_ps_exit(int exit_val);
-t_push_swap	*ft_ps_get(void);
-
-t_push_swap	*ft_ps_init(int ac, char **av);
-void		ft_ps_destroy(void);
+void	ft_ps_exit(t_push_swap *ps, int exit_val);
+t_push_swap	ft_ps_get(int ac, char **av);
+void		ft_ps_free(t_push_swap	*ps);
 
 #endif
