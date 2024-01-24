@@ -60,19 +60,15 @@ LIBFTFLAGS = -L $(LIBFTDIR)/ -l $(LIBFTNAME) $(LIBFTINCLUDES)
 
 all		:	$(PS_NAME) $(CK_NAME)
 
-push_swap	:	$(PS_NAME)
-
-checker	:	$(CK_NAME)
-
-$(PS_NAME)	: lib	$(PS_OBJS) $(CMN_OBJS)
+$(PS_NAME)	: $(LIBFTPATH) $(PS_OBJS) $(CMN_OBJS)
 	$(CC) $(CFLAGS) -o $@ $(PS_OBJS) $(CMN_OBJS) -I $(HDIR)/ $(LIBFTFLAGS)
 
-$(CK_NAME)	: lib	$(CK_OBJS) $(CMN_OBJS)
+$(CK_NAME)	: $(LIBFTPATH) $(CK_OBJS) $(CMN_OBJS)
 	$(CC) $(CFLAGS) -o $@ $(CK_OBJS) $(CMN_OBJS) -I $(HDIR)/ $(LIBFTFLAGS)
 
 -include $(CK_DEPS) $(CMN_DEPS) $(PS_DEPS)
 
-$(BDIR)/%.o		:	$(SDIR)/%.c $(LIBFTPATH)
+$(BDIR)/%.o		:	$(SDIR)/%.c
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I $(HDIR)/ $(LIBFTINCLUDES)
 
@@ -86,8 +82,10 @@ clean	:
 re		:	fclean
 	@$(MAKE) all
 
-lib:
-	$(MAKE) -C $(LIBFTDIR)
+$(LIBFTPATH)	: force
+	$(MAKE) -s -C $(LIBFTDIR)
+
+force	:
 
 libdebug:
 	$(MAKE) -C $(LIBFTDIR) debug
@@ -96,9 +94,5 @@ libdebug:
 			fclean\
 			clean\
 			re\
-			lib\
-			libdebug\
-			checker\
-			push_swap
-
-
+			libdebug
+			

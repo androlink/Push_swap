@@ -6,12 +6,13 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/24 16:46:17 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/24 18:54:53 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_utils.h"
 #include "push_swap.h"
+#include "put.h"
 #include "ft_printf.h"
 
 void	ft_print_result(t_array *result);
@@ -50,7 +51,7 @@ void	ft_ps_exit(t_push_swap *ps, int exit_val)
 {
 	ft_ps_free(ps);
 	if (exit_val == -1)
-		ft_printf("Error\n");
+		ft_putstr_fd("Error\n", 2);
 	exit(exit_val);
 }
 

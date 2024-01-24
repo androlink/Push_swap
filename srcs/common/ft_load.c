@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:06:24 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 17:00:31 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/24 18:46:15 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ static int	fill_value(char *str, t_array *array)
 	i = 0;
 	while (strs[i] != NULL)
 		i++;
+	if (i == 0)
+		return (ft_strsfree(strs), -1);
 	if (array->capacity <= array->size + i)
 		if (ft_arr_resize(array, array->size + i + 1) == -1)
 			return (ft_strsfree(strs), -1);
@@ -82,8 +84,7 @@ static int	fill_value(char *str, t_array *array)
 		ft_arr_push(array, value);
 		i++;
 	}
-	ft_strsfree(strs);
-	return (1);
+	return (ft_strsfree(strs), 1);
 }
 
 static long	*get_value(const char *str)
@@ -94,6 +95,10 @@ static long	*get_value(const char *str)
 	if (!ft_strisnumber(str))
 		return (NULL);
 	value = ft_atoi(str);
+	if (value == -1 && str[0] != '-')
+		return (NULL);
+	if (value == 0 && str[0] != '0')
+		return (NULL);
 	ret = malloc(sizeof(long));
 	if (ret != NULL)
 		*ret = value;

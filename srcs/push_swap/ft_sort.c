@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:08:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/24 17:12:36 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/24 18:55:20 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	free_sort(t_sort *sort)
 static t_sort	get_sort(t_array *num_set)
 {
 	t_sort	sort;
-	
+
 	sort.stack_a = ft_arr_map(num_set, ft_pdup, NULL);
 	sort.stack_b = ft_arr_new(num_set->capacity);
 	sort.instruction = ft_arr_new(20);
@@ -64,7 +64,6 @@ t_array	*ft_sort(t_array *num_set, int (*fsort)(t_sort *))
 			ft_arr_free(&clean_result, NULL);
 		}
 	}
-	//*(char *)0 = 0; //TODO refais ta gestion foireuse
 	free_sort(&sort);
 	return (merged_result);
 }
