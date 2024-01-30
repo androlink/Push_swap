@@ -6,13 +6,12 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 22:41:05 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/24 17:05:03 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:16:20 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ft_load.h"
-#include "put.h"
 
 t_push_swap	ft_ps_get(int ac, char **av)
 {

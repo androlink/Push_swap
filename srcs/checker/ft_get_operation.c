@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 23:18:36 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 15:38:59 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:18:33 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,10 @@
 #include "arr.h"
 #include "ft_operation.h"
 #include "str.h"
-#include "ft_printf.h"
 #include "ft_utils.h"
-#include "put.h"
 
 static t_operator	*get_next_operator(void);
 t_operator			str_to_operator(char *strop);
-
-void	ft_print_result(t_array *result)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < result->size)
-	{
-		ft_printf("%s\n", ft_get_op_str(*(t_operator *)result->data[i]));
-		i++;
-	}
-}
 
 t_array	*ft_get_operation(void)
 {

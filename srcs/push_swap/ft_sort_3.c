@@ -6,12 +6,13 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 17:32:49 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 16:44:29 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:11:58 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_operation.h"
 #include "ft_utils.h"
+#include "push_swap.h"
 #include <unistd.h>
 
 int	ft_sort_3(t_sort *srt)

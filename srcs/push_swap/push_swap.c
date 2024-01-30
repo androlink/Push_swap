@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/24 18:54:53 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:18:28 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "put.h"
 #include "ft_printf.h"
 
-void	ft_print_result(t_array *result);
-void	ft_print_best_result(t_array *results);
+static void	ft_print_result(t_array *result);
+static void	ft_print_best_result(t_array *results);
 
 int	main(int ac, char **av)
 {
@@ -55,7 +55,7 @@ void	ft_ps_exit(t_push_swap *ps, int exit_val)
 	exit(exit_val);
 }
 
-void	ft_print_best_result(t_array *results)
+static void	ft_print_best_result(t_array *results)
 {
 	size_t	i;
 	t_array	*result;
@@ -77,14 +77,15 @@ void	ft_print_best_result(t_array *results)
 	ft_print_result(result);
 }
 
-void	ft_print_result(t_array *result)
+static void	ft_print_result(t_array *result)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < result->size)
 	{
-		ft_printf("%s\n", ft_get_op_str(*(t_operator *)result->data[i]));
+		if (ft_printf("%s\n", ft_get_op_str(*(t_operator *)result->data[i])) == -1)
+			return ;
 		i++;
 	}
 }

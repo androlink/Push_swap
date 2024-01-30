@@ -32,7 +32,6 @@ PS_FILES	=	push_swap.c		\
 				ft_resolve.c	\
 				ft_sort_utils.c	\
 				ft_quad_insert_with_pivot.c	\
-				ft_sort_2.c	\
 				ft_sort.c	\
 				ft_push_swap_utils.c	\
 				ft_quad_insert.c		\
@@ -59,6 +58,8 @@ LIBFTINCLUDES =  -I $(LIBFTDIR)/includes/
 LIBFTFLAGS = -L $(LIBFTDIR)/ -l $(LIBFTNAME) $(LIBFTINCLUDES)
 
 all		:	$(PS_NAME) $(CK_NAME)
+
+bonus 	: $(CK_NAME)
 
 $(PS_NAME)	: $(LIBFTPATH) $(PS_OBJS) $(CMN_OBJS)
 	$(CC) $(CFLAGS) -o $@ $(PS_OBJS) $(CMN_OBJS) -I $(HDIR)/ $(LIBFTFLAGS)

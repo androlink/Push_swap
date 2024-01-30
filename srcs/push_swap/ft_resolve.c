@@ -6,11 +6,12 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 16:58:00 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:11:59 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_utils.h"
+#include "push_swap.h"
 
 t_array	*ft_merge_op(t_array *inst)
 {

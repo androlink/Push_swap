@@ -6,12 +6,13 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 17:11:09 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:12:04 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_operation.h"
 #include "ft_quad_insert_with_pivot.h"
+#include "push_swap.h"
 
 static int		push_value_pivot(t_sort *sort, long pivot);
 static size_t	get_pot_index(t_array *array, long value);

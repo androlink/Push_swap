@@ -6,13 +6,14 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 17:03:57 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:12:08 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arr.h"
 #include "ft_utils.h"
 #include "ft_sort.h"
+#include "push_swap.h"
 
 int	ft_double_insert_sort(t_sort *sort)
 {

@@ -6,12 +6,13 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:08:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/24 18:55:20 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/30 15:11:20 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_sort.h"
 #include "ft_utils.h"
+#include "push_swap.h"
 
 void	*ft_pdup(void *ptr)
 {
