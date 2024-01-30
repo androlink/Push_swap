@@ -84,16 +84,14 @@ re		:	fclean
 	@$(MAKE) all
 
 $(LIBFTPATH)	: force
-	$(MAKE) -s -C $(LIBFTDIR)
+	$(MAKE) -C $(LIBFTDIR)
 
 force	:
 
-libdebug:
-	$(MAKE) -C $(LIBFTDIR) debug
 
 .PHONY	:	all\
 			fclean\
 			clean\
 			re\
-			libdebug
+			bonus
 			
