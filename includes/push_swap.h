@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 18:52:40 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/31 23:24:10 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int			ft_goto_b(t_sort *sort, size_t pos);
 
 t_array		*ft_clean_op(t_array *instruction);
 t_array		*ft_merge_op(t_array *inst);
+
+void	ft_print_result(t_array *result);
 
 #endif
