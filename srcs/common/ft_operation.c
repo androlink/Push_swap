@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:37 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/19 13:13:09 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/31 04:40:02 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_run_op(t_sort *ptr, t_operator op)
 		return (ft_op_revrot(ptr->stack_a));
 	else if (op == RRB)
 		return (ft_op_revrot(ptr->stack_b));
-	return (0);
+	return (-1);
 }
 
 static int	ft_op_rotate(t_array *arr)
