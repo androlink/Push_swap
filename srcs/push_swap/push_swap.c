@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 18:33:59 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/31 18:54:27 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ static void	ft_print_result(t_array *result)
 	i = 0;
 	while (i < result->size)
 	{
-		if (ft_printf("%s\n", ft_get_op_str(*(t_operator *)result->data[i])) == -1)
+		if (ft_printf("%s\n",
+				ft_get_op_str(*(t_operator *)result->data[i])) == -1)
 			return ;
 		i++;
 	}

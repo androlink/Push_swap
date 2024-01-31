@@ -81,7 +81,7 @@ clean	:
 	$(RMF) $(CK_OBJS) $(CMN_OBJS) $(PS_OBJS) $(CK_DEPS) $(CMN_DEPS) $(PS_DEPS)
 
 re		:	fclean
-	@$(MAKE) all
+	$(MAKE) all
 
 $(LIBFTPATH)	: force
 	$(MAKE) -C $(LIBFTDIR)
