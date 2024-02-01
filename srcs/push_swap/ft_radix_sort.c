@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:15:27 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 18:40:05 by gcros            ###   ########.fr       */
+/*   Updated: 2024/02/01 01:05:55 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_radix_sort(t_sort *sort)
 						return (-1);
 			j--;
 		}
-		ft_dumb_b(sort);
+		ft_dump_b(sort);
 		flag *= 2;
 	}
 	return (1);

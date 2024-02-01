@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 22:46:48 by gcros            ###   ########.fr       */
+/*   Updated: 2024/02/01 01:26:25 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ int	ft_double_insert_sort(t_sort *sort)
 				if (ft_add_operator(sort->instruction, RB) == -1)
 					return (-1);
 	}
-	return (ft_dumb_b(sort));
+	return (ft_dump_b(sort));
 }

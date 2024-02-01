@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:10:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 18:46:14 by gcros            ###   ########.fr       */
+/*   Updated: 2024/02/01 01:26:57 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ft_operation.h"
 #include "ft_utils.h"
 
-int	ft_check_op(t_sort *sort, t_operator op);
+static int	ft_check_op(t_sort *sort, t_operator op);
 
 int	ft_apply_op(t_sort *sort)
 {
@@ -30,7 +30,7 @@ int	ft_apply_op(t_sort *sort)
 	return (sort->stack_b->size == 0 && ft_is_sort(sort->stack_a));
 }
 
-int	ft_check_op(t_sort *sort, t_operator op)
+static int	ft_check_op(t_sort *sort, t_operator op)
 {
 	if (op == NONE)
 		return (-1);
