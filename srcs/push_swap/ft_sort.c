@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:08:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/30 15:11:20 by gcros            ###   ########.fr       */
+/*   Updated: 2024/01/31 18:54:45 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ t_array	*ft_sort(t_array *num_set, int (*fsort)(t_sort *))
 	if (sort.instruction == NULL)
 		return (NULL);
 	merged_result = NULL;
-	if (fsort(&sort) == 1 && ft_is_sort(sort.stack_a))
+	if (fsort(&sort) == 1
+		&& ft_is_sort(sort.stack_a) && sort.stack_b->size == 0)
 	{
 		clean_result = ft_clean_op(sort.instruction);
 		if (clean_result != NULL)

@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/30 15:11:59 by gcros            ###   ########.fr       */
+/*   Updated: 2024/02/01 01:05:55 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ t_array	*ft_clean_op(t_array *inst)
 	return (result);
 }
 
-int	ft_dumb_b(t_sort *sort)
+int	ft_dump_b(t_sort *sort)
 {
 	while (sort->stack_b->size > 0)
 	{
@@ -74,7 +74,7 @@ int	ft_dumb_b(t_sort *sort)
 	return (1);
 }
 
-int	ft_dumb_a(t_sort *sort)
+int	ft_dump_a(t_sort *sort)
 {
 	while (sort->stack_a->size != 0)
 	{

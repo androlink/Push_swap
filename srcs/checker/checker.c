@@ -6,19 +6,17 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:05:08 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 15:40:09 by gcros            ###   ########.fr       */
+/*   Updated: 2024/02/01 01:27:09 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arr.h"
 #include "ft_load.h"
 #include "checker.h"
-#include "ft_utils.h"
-#include "ft_printf.h"
 #include "put.h"
 
-t_sort	*checker_init(int ac, char **av);
-void	free_sort(t_sort *sort);
+static t_sort	*checker_init(int ac, char **av);
+static void		free_sort(t_sort *sort);
 
 int	main(int ac, char **av)
 {
@@ -45,7 +43,7 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-void	free_sort(t_sort *sort)
+static void	free_sort(t_sort *sort)
 {
 	if (sort->instruction != NULL)
 		ft_arr_free(&sort->instruction, NULL);
@@ -56,7 +54,7 @@ void	free_sort(t_sort *sort)
 	free(sort);
 }
 
-t_sort	*checker_init(int ac, char **av)
+static t_sort	*checker_init(int ac, char **av)
 {
 	t_sort	*sort;
 

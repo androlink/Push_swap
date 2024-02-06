@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/30 15:12:08 by gcros            ###   ########.fr       */
+/*   Updated: 2024/02/01 01:26:25 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	ft_double_insert_sort(t_sort *sort)
 				*(long *)sort->stack_b->data[0] + 1);
 		if (ft_get_dist(sort->stack_a, n) > ft_get_dist(sort->stack_a, tmp_n))
 			n = tmp_n;
-		ft_goto_a(sort, n);
+		if (ft_goto_a(sort, n))
+			return (-1);
 		if (ft_run_op(sort, PB))
 			if (ft_add_operator(sort->instruction, PB) == -1)
 				return (-1);
@@ -40,5 +41,5 @@ int	ft_double_insert_sort(t_sort *sort)
 				if (ft_add_operator(sort->instruction, RB) == -1)
 					return (-1);
 	}
-	return (ft_dumb_b(sort));
+	return (ft_dump_b(sort));
 }

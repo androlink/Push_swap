@@ -35,7 +35,7 @@ PS_FILES	=	push_swap.c		\
 				ft_sort.c	\
 				ft_push_swap_utils.c	\
 				ft_quad_insert.c		\
-				ft_sort_3.c
+				ft_sort_3.c		
 PS_PATH		=	${addprefix $(PS_DIR)/, $(PS_FILES)}
 PS_SRCS		=	${addprefix $(SDIR)/, $(PS_PATH)}
 PS_OBJS		=	$(PS_PATH:%.c=$(BDIR)/%.o)
@@ -81,7 +81,7 @@ clean	:
 	$(RMF) $(CK_OBJS) $(CMN_OBJS) $(PS_OBJS) $(CK_DEPS) $(CMN_DEPS) $(PS_DEPS)
 
 re		:	fclean
-	@$(MAKE) all
+	$(MAKE) all
 
 $(LIBFTPATH)	: force
 	$(MAKE) -C $(LIBFTDIR)
