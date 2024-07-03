@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 23:24:26 by gcros            ###   ########.fr       */
+/*   Updated: 2024/07/03 20:02:48 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,26 @@ static void	ft_print_best_result(t_array *results);
 
 int	main(int ac, char **av)
 {
-	t_push_swap	ps;
-	t_array		*result;
+	t_push_swap			ps;
+	t_array				*result;
+	const void * f_list[] = {ft_sort_3, ft_radix_sort,
+		ft_quad_insert_with_pivot, ft_quad_insert,
+		ft_double_insert_sort, ps_stalinsort};
+	size_t					i;
 
 	if (ac < 2)
 		exit (0);
 	ps = ft_ps_get(ac - 1, av + 1);
 	if (ps.number_set == NULL || ps.results == NULL)
 		ft_ps_exit(&ps, -1);
-	result = ft_sort(ps.number_set, &ft_sort_3);
-	if (result != NULL)
-		ft_arr_push(ps.results, result);
-	result = ft_sort(ps.number_set, &ft_radix_sort);
-	if (result != NULL)
-		ft_arr_push(ps.results, result);
-	result = ft_sort(ps.number_set, &ft_quad_insert_with_pivot);
-	if (result != NULL)
-		ft_arr_push(ps.results, result);
-	result = ft_sort(ps.number_set, &ft_quad_insert);
-	if (result != NULL)
-		ft_arr_push(ps.results, result);
-	result = ft_sort(ps.number_set, &ft_double_insert_sort);
-	if (result != NULL)
-		ft_arr_push(ps.results, result);
+	i = 0;
+	while (i < sizeof(f_list) / sizeof(*f_list))
+	{
+		result = ft_sort(ps.number_set, f_list[i]);
+		if (result != NULL)
+			ft_arr_push(ps.results, result);
+		i++;
+	}
 	ft_print_best_result(ps.results);
 	ft_ps_exit(&ps, 0);
 }

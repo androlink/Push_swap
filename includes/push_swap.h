@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/02/01 01:06:33 by gcros            ###   ########.fr       */
+/*   Updated: 2024/07/03 16:37:35 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			ft_double_insert_sort(t_sort *sort);
 int			ft_quad_insert(t_sort *sort);
 int			ft_quad_insert_with_pivot(t_sort *sort);
 int			ft_sort_3(t_sort *srt);
+int			ps_stalinsort(t_sort *sort);
 
 int			ft_goto_a(t_sort *sort, size_t pos);
 size_t		ft_get_dist(t_array *array, size_t index);
