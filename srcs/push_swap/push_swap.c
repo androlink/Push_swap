@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2024/07/03 20:02:48 by gcros            ###   ########.fr       */
+/*   Updated: 2024/11/28 19:52:40 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	ft_print_best_result(t_array *results);
 
 int	main(int ac, char **av)
 {
-	t_push_swap			ps;
-	t_array				*result;
-	const void * f_list[] = {ft_sort_3, ft_radix_sort,
-		ft_quad_insert_with_pivot, ft_quad_insert,
-		ft_double_insert_sort, ps_stalinsort};
-	size_t					i;
+	t_push_swap		ps;
+	t_array			*result;
+	const t_sortf	f_list[] = {&ft_sort_3, &ft_radix_sort,
+		&ft_quad_insert_with_pivot, &ft_quad_insert,
+		&ft_double_insert_sort, &ps_stalinsort};
+	size_t			i;
 
 	if (ac < 2)
 		exit (0);

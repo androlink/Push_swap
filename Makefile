@@ -4,7 +4,7 @@ CK_NAME = checker
 CC = cc
 RMF = rm -f
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 DFLAGS = -MMD -MP
 
 HDIR	=	includes
