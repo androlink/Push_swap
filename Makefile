@@ -51,7 +51,7 @@ CK_SRCS		=	${addprefix $(SDIR)/, $(CK_PATH)}
 CK_OBJS		=	$(CK_PATH:%.c=$(BDIR)/%.o)
 CK_DEPS		=	$(CK_PATH:%.c=$(DDIR)/%.d)
 
-LIBFTDIR = libft-1.1
+LIBFTDIR = libft
 LIBFTNAME = ft
 LIBFTAR = libft.a
 LIBFTPATH = $(LIBFTDIR)/$(LIBFTAR)

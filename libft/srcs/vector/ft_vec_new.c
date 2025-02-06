@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   num.h                                              :+:      :+:    :+:   */
+/*   ft_vec_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 19:51:40 by gcros             #+#    #+#             */
-/*   Updated: 2023/12/17 22:34:41 by gcros            ###   ########.fr       */
+/*   Created: 2024/02/03 17:26:02 by gcros             #+#    #+#             */
+/*   Updated: 2024/02/07 05:02:35 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NUM_H
-# define NUM_H
+#include "vector.h"
+#include <stdlib.h>
 
-# include <limits.h>
-# include "str.h"
+t_vector	*ft_vec_new(size_t	elem_size)
+{
+	t_vector	*vector;
 
-int		ft_atoi(const char *nptr);
-long	ft_atol(const char *nptr);
-#endif
+	vector = malloc(sizeof(t_vector));
+	if (vector == NULL)
+		return (NULL);
+	if (!ft_vec_init(vector, elem_size))
+	{
+		free(vector);
+		vector = NULL;
+	}
+	return (vector);
+}

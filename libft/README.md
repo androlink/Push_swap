@@ -4,19 +4,15 @@
 
 ### Make
 
-``` make -C libft/ ```
-
-### Make debug
-
-``` make -C libft/ debug```
+``` make -C ${LIBFTDIR}/ ```
 
 ### Compilation
 
-add thid line in your compilation command
-- ``` -L libft/ -l ft -I libft/includes/ ```
-  - `-L`	->	path to the lib
-  - `-l`	->	lib name
-  - `-I`	->	path for `.h`
+#### Library
+- ``` -L ${LIBFTDIR}/ -l ft ```
+
+#### Include
+- ``` -I ${LIBFTDIR}/includes/ ```
 
 ## All function
 
@@ -45,13 +41,20 @@ add thid line in your compilation command
 |	[ft_memcmp](./srcs/mem/ft_memcmp.c)		|	int		ft_memcmp(const void *s1, const void *s2, size_t n);	|
 |	[ft_calloc](./srcs/mem/ft_calloc.c)		|	void	*ft_calloc(size_t nmemb, size_t size);					|
 |	[ft_nfree](./srcs/mem/ft_nfree.c)		|	void	ft_nfree(void **ptr);									|
+|	[ft_memdump](./srcs/mem/ft_memdump.c)	|	void	 ft_memdump(void *ptr, size_t len);						|
 
 [num.h](includes/num.h)
 
 |	function	|	prototype	|
 |	:---:	|	:---:	|
-|	[ft_atoi](./srcs/num/ft_atoi.c)	|	int		ft_atoi(const char *nptr);	|
-|	[ft_atol](./srcs/num/ft_atol.c)	|	long	ft_atol(const char *nptr);	|
+|	[ft_atoi](./srcs/num/ft_atoi.c)		|	int		ft_atoi(const char *nptr);		|
+|	[ft_atol](./srcs/num/ft_atol.c)		|	long	ft_atol(const char *nptr);		|
+|	[ft_maxf](./srcs/num/ft_min_max.c)	|	float	ft_maxf(float n1, float n2);	|
+|	[ft_minf](./srcs/num/ft_min_max.c)	|	float	ft_minf(float n1, float n2);	|
+|	[ft_absf](./srcs/num/ft_abs.c)		|	float	ft_absf(float n);				|
+|	[ft_abs](./srcs/num/ft_abs.c)		|	int		ft_abs(int n);					|
+|	[ft_min](./srcs/num/ft_min_max.c)	|	int		ft_min(int n1, int n2);			|
+|	[ft_max](./srcs/num/ft_min_max.c)	|	int		ft_max(int n1, int n2);			|
 
 [str.h](includes/str.h)
 
@@ -74,9 +77,11 @@ add thid line in your compilation command
 |	[ft_itoa](./srcs/str/ft_itoa.c)				|	char	*ft_itoa(int n);												|
 |	[t_strncpy](./srcs/str/ft_strcpy.c)			|	void	ft_strncpy(char *dest, const char *src, size_t n);				|
 | 	[ft_stpcpy](./srcs/str/ft_strcpy.c)			|	char	*ft_stpcpy(char *dest, const char *src);						|
+| 	[ft_strcpy](./srcs/str/ft_strcpy.c)			|	char	*ft_strcpy(char *dest, const char *src);						|
 |	[ft_strisnumber](./srcs/str/ft_strisnum.c)	|	int		ft_strisnumber(const char *s);									|
 |	[ft_strsfree](./srcs/str/ft_split.c)		|	void	ft_strsfree(char **str);										|
-|	[ft_strsjoin](./srcs/str/ft_strsjoin.c)		|	char	*ft_strsjoin(char **strs, char sep);							|
+|	[ft_strsjoin](./srcs/str/ft_strsjoin.c)		|	char	*ft_strsjoin(char **strs);										|
+|	[ft_strsjoin_c](./srcs/str/ft_strsjoin_c.c)	|	char	*ft_strsjoin_c(char **strs, char sep);							|
 
 [put.h](includes/put.h)
 
@@ -135,3 +140,17 @@ add thid line in your compilation command
 |	[ft_arr_unshift](srcs/arr/ft_arr_unshift.c)	|	int		ft_arr_unshift(t_array *array, void *elem);								|
 |	[ft_arr_shift](srcs/arr/ft_arr_shift.c)		|	void	*ft_arr_shift(t_array *array);											|
 |	[ft_arr_map](srcs/arr/ft_arr_map.c)			|	t_array	*ft_arr_map(t_array *array, void *(*f)(void *), void (*del)(void *));	|
+|	[ft_arr_append](srcs/arr/ft_arr_append.c)	|	int		ft_arr_append(t_array *arr, void *elem);								|
+
+[vector.h](includes/vector.h)
+
+|	function	|	prototype 	|
+|	:---:	|	:---:	|
+|	[ft_vec_init](srcs/vec/ft_vec_init.c)		|	int			ft_vec_init(t_vector *vector, size_t elem_size);		|
+|	[ft_vec_new](srcs/vec/ft_vec_new.c)			|	t_vector	*ft_vec_new(size_t	elem_size);							|
+|	[ft_vec_append](srcs/vec/ft_arr_new.c)		|	int			ft_vec_append(t_vector *vector, void *elem);			|
+|	[ft_vec_resize](srcs/vec/ft_vec_resize.c)	|	int			ft_vec_resize(t_vector *vector, size_t	ncapacity);		|
+|	[ft_vec_clear](srcs/vec/ft_vec_clear.c)		|	int			ft_vec_clear(t_vector *vector);							|
+|	[ft_vec_get](srcs/vec/ft_vec_get.c)			|	int			ft_vec_get(t_vector *vector, size_t index, void *out);	|
+|	[ft_vec_destroy](srcs/vec/ft_vec_destroy.c)	|	void		ft_vec_destroy(t_vector *vector);						|
+|	[ft_vec_free](srcs/vec/ft_vec_free.c)		|	void		ft_vec_free(t_vector **vector);							|

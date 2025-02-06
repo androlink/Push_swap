@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arr_shift.c                                     :+:      :+:    :+:   */
+/*   ft_vec_get.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/03 15:00:54 by androlink         #+#    #+#             */
-/*   Updated: 2024/01/31 18:53:35 by gcros            ###   ########.fr       */
+/*   Created: 2024/02/03 19:19:35 by gcros             #+#    #+#             */
+/*   Updated: 2024/02/07 05:02:53 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arr.h"
+#include "vector.h"
+#include "mem.h"
 
-void	*ft_arr_shift(t_array *array)
+int	ft_vec_get(t_vector *vector, size_t index, void *out)
 {
-	void	*elem;
-
-	if (array->size == 0)
-		return (NULL);
-	elem = array->data[0];
-	ft_memmove(array->data,
-		array->data + 1,
-		(array->size - 1) * sizeof(void *));
-	array->size -= 1;
-	return (elem);
+	if (index >= vector->size)
+		return (0);
+	ft_memcpy(out, vector->data + vector->elem_size * index, vector->elem_size);
+	return (1);
 }

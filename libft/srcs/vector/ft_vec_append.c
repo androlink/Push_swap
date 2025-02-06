@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsjoin.c                                      :+:      :+:    :+:   */
+/*   ft_vec_append.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 10:10:08 by gcros             #+#    #+#             */
-/*   Updated: 2023/12/18 12:37:10 by gcros            ###   ########.fr       */
+/*   Created: 2024/02/03 18:30:52 by gcros             #+#    #+#             */
+/*   Updated: 2024/02/20 17:43:44 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "str.h"
+#include "vector.h"
+#include "mem.h"
 
-char	*ft_strsjoin(char **strs, char sep)
+int	ft_vec_append(t_vector *vector, void *elem)
 {
-	char	*str;
-	char	*p;
-	size_t	i;
-	size_t	count;
-
-	i = 0;
-	count = 0;
-	while (strs[i])
-		count += ft_strlen(strs[i++]);
-	if (count + i == 0)
-		return (NULL);
-	str = malloc(count + i);
-	if (!str)
-		return (NULL);
-	i = 0;
-	p = str;
-	while (strs[i])
-	{
-		p = ft_stpcpy(p, strs[i++]);
-		*(p++) = sep;
-	}
-	*(p - 1) = '\0';
-	return (str);
+	if (vector->capacity == vector->size)
+		if (ft_vec_resize(vector, vector->size * 2 + 1) == 0)
+			return (0);
+	ft_memcpy(vector->data + vector->size * vector->elem_size,
+		elem,
+		vector->elem_size);
+	vector->size++;
+	return (1);
 }
