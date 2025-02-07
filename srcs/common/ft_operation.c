@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:37 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 17:05:06 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:23:32 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,14 @@ static int	ft_op_swap(t_vector *arr)
 	((long *)arr->data)[1] = p;
 	return (1);
 }
-#include <stdio.h>
-void	print_stack(t_vector *stack, const char *name);
+
 static int	ft_op_push(t_vector *arr1, t_vector *arr2)
 {
 	long	tmp;
 
 	if (arr2->size == 0)
 		return (0);
-	// print_stack(arr1, "arr1 before");
-	// print_stack(arr2, "arr2 before");
 	ft_vec_shift(arr2, &tmp);
 	ft_vec_unshift(arr1, &tmp);
-	// print_stack(arr1, "arr1 after");
-	// print_stack(arr2, "arr2 after");
 	return (1);
 }

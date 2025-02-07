@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 17:05:09 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:24:08 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,9 @@ t_array	*ft_clean_op(t_array *inst)
 	}
 	return (result);
 }
-#include <stdio.h>
+
 int	ft_dump_b(t_sort *sort)
 {
-	// printf("dump b\n");
 	while (sort->stack_b->size > 0)
 	{
 		if (ft_run_op(sort, PA))

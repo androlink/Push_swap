@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:07:21 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 17:03:45 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:23:16 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,3 @@ int	ft_vec_shift(t_vector *vector, void *out)
 	vector->size--;
 	return (1);
 }
-
-

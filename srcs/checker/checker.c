@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:05:08 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:17:37 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:24:24 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	free_sort(t_sort *sort)
 	if (sort->stack_a != NULL)
 		ft_vec_free(&sort->stack_a);
 	if (sort->stack_b != NULL)
-	ft_vec_free(&sort->stack_b);
+		ft_vec_free(&sort->stack_b);
 	free(sort);
 }
 
