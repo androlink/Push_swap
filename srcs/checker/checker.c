@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:05:08 by gcros             #+#    #+#             */
-/*   Updated: 2024/02/01 01:27:09 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:17:37 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,21 @@ static void	free_sort(t_sort *sort)
 	if (sort->instruction != NULL)
 		ft_arr_free(&sort->instruction, NULL);
 	if (sort->stack_a != NULL)
-		ft_arr_free(&sort->stack_a, free);
+		ft_vec_free(&sort->stack_a);
 	if (sort->stack_b != NULL)
-		ft_arr_free(&sort->stack_b, free);
+	ft_vec_free(&sort->stack_b);
 	free(sort);
+}
+
+static t_vector	*get_stackb(size_t size)
+{
+	t_vector	*v;
+
+	v = ft_vec_new(sizeof(long));
+	if (v)
+		if (ft_vec_resize(v, size) == 0)
+			ft_vec_free(&v);
+	return (v);
 }
 
 static t_sort	*checker_init(int ac, char **av)
@@ -67,7 +78,7 @@ static t_sort	*checker_init(int ac, char **av)
 	if (sort->stack_a != NULL)
 		sort->instruction = ft_get_operation();
 	if (sort->stack_a != NULL)
-		sort->stack_b = ft_arr_new(sort->stack_a->size);
+		sort->stack_b = get_stackb(sort->stack_a->size);
 	if (sort->stack_a == NULL
 		|| sort->stack_b == NULL
 		|| sort->instruction == NULL)
