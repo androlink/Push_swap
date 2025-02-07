@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:17:40 by gcros             #+#    #+#             */
-/*   Updated: 2024/07/03 16:59:29 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:01:11 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ int	ps_stalinsort(t_sort *sort)
 int	ps_stalin(t_sort *sort)
 {
 	size_t			i;
-	const t_array	*s_a = sort->stack_a;
+	const t_vector	*s_a = sort->stack_a;
 
 	i = 0;
 	while (i < s_a->size - 1)
 	{
-		if (*(long *)s_a->data[i] > *(long *)s_a->data[i + 1]
-			&& *(unsigned long *)s_a->data[i] != s_a->size - 1)
+		if (((long *)s_a->data)[i] > ((long *)s_a->data)[i + 1]
+			&& ((unsigned long *)s_a->data)[i] != s_a->size - 1)
 		{
 			if (ft_goto_a(sort, i + 1) == -1)
 				return (-1);

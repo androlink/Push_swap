@@ -33,12 +33,12 @@ PS_FILES	+=	ft_radix_sort.c
 PS_FILES	+=	ft_double_insert_sort.c
 PS_FILES	+=	ft_resolve.c
 PS_FILES	+=	ft_sort_utils.c
-# PS_FILES	+=	ft_quad_insert_with_pivot.c
+PS_FILES	+=	ft_quad_insert_with_pivot.c
 PS_FILES	+=	ft_sort.c
 PS_FILES	+=	ft_push_swap_utils.c
-# PS_FILES	+=	ft_quad_insert.c
-# PS_FILES	+=	ps_stalinsort.c
-# PS_FILES	+=	ft_sort_3.c
+PS_FILES	+=	ft_quad_insert.c
+PS_FILES	+=	ps_stalinsort.c
+PS_FILES	+=	ft_sort_3.c
 
 PS_PATH		=	${addprefix $(PS_DIR)/, $(PS_FILES)}
 PS_SRCS		=	${addprefix $(SDIR)/, $(PS_PATH)}

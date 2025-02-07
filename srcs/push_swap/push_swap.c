@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 17:40:21 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:01:23 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int	main(int ac, char **av)
 {
 	t_push_swap		ps;
 	t_array			*result;
-	// const t_sortf	f_list[] = {&ft_sort_3, &ft_radix_sort,
-	// 	&ft_quad_insert_with_pivot, &ft_quad_insert,
-	// 	&ft_double_insert_sort, &ps_stalinsort};
-	const t_sortf	f_list[] = {&ft_double_insert_sort};
+	const t_sortf	f_list[] = {&ft_sort_3, &ft_radix_sort,
+		&ft_quad_insert_with_pivot, &ft_quad_insert,
+		&ft_double_insert_sort, &ps_stalinsort};
 	size_t			i;
 
 	if (ac < 2)
