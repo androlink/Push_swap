@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 22:41:05 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/30 15:16:20 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/06 17:31:10 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_push_swap	ft_ps_get(int ac, char **av)
 		return (ps);
 	ps.results = ft_arr_new(10);
 	if (ps.results == NULL)
-		ft_arr_free(&ps.number_set, free);
+		ft_vec_free(&ps.number_set);
 	return (ps);
 }
 
@@ -38,7 +38,7 @@ static void	free_ps_result(void *array)
 void	ft_ps_free(t_push_swap	*ps)
 {
 	if (ps->number_set != NULL)
-		ft_arr_free(&ps->number_set, free);
+		ft_vec_free(&ps->number_set);
 	if (ps->results != NULL)
 		ft_arr_free(&ps->results, free_ps_result);
 	ps->number_set = NULL;

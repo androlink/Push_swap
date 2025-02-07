@@ -19,24 +19,27 @@ CMN_FILES	=	ft_load.c		\
 				ft_utils.c		\
 				ft_operation.c	\
 				ft_load_utils.c	\
-				ft_operation_utils.c
+				ft_operation_utils.c\
+				ft_vec_utils.c
 CMN_PATH	=	${addprefix $(CMN_DIR)/, $(CMN_FILES)}
 CMN_SRCS	=	$(CMN_PATH:%=$(SDIR)/%)
 CMN_OBJS	=	$(CMN_PATH:%.c=$(BDIR)/%.o)
 CMN_DEPS	=	$(CMN_PATH:%.c=$(DDIR)/%.d)
 
 PS_DIR		=	push_swap
-PS_FILES	=	push_swap.c		\
-				ft_radix_sort.c	\
-				ft_double_insert_sort.c	\
-				ft_resolve.c	\
-				ft_sort_utils.c	\
-				ft_quad_insert_with_pivot.c	\
-				ft_sort.c	\
-				ft_push_swap_utils.c	\
-				ft_quad_insert.c		\
-				ps_stalinsort.c			\
-				ft_sort_3.c		
+
+PS_FILES	=	push_swap.c
+PS_FILES	+=	ft_radix_sort.c
+PS_FILES	+=	ft_double_insert_sort.c
+PS_FILES	+=	ft_resolve.c
+PS_FILES	+=	ft_sort_utils.c
+# PS_FILES	+=	ft_quad_insert_with_pivot.c
+PS_FILES	+=	ft_sort.c
+PS_FILES	+=	ft_push_swap_utils.c
+# PS_FILES	+=	ft_quad_insert.c
+# PS_FILES	+=	ps_stalinsort.c
+# PS_FILES	+=	ft_sort_3.c
+
 PS_PATH		=	${addprefix $(PS_DIR)/, $(PS_FILES)}
 PS_SRCS		=	${addprefix $(SDIR)/, $(PS_PATH)}
 PS_OBJS		=	$(PS_PATH:%.c=$(BDIR)/%.o)
@@ -58,7 +61,7 @@ LIBFTPATH = $(LIBFTDIR)/$(LIBFTAR)
 LIBFTINCLUDES =  -I $(LIBFTDIR)/includes/
 LIBFTFLAGS = -L $(LIBFTDIR)/ -l $(LIBFTNAME) $(LIBFTINCLUDES)
 
-all		:	$(PS_NAME) $(CK_NAME)
+all		:	$(PS_NAME) # $(CK_NAME)
 
 bonus 	: $(CK_NAME)
 

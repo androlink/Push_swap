@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 05:07:23 by gcros             #+#    #+#             */
-/*   Updated: 2024/02/07 05:07:31 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/06 19:44:03 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,10 @@ int			ft_vec_clear(t_vector *vector);
 int			ft_vec_get(t_vector *vector, size_t index, void *out);
 void		ft_vec_destroy(t_vector *vector);
 void		ft_vec_free(t_vector **vector);
+
+int	ft_vec_pop(t_vector *vector, void *out);
+int	ft_vec_push(t_vector *vector, void *elem);
+int	ft_vec_shift(t_vector *vector, void *out);
+int	ft_vec_unshift(t_vector *vector, void *elem);
 
 #endif

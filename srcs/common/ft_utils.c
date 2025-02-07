@@ -6,21 +6,26 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 16:42:20 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 14:56:35 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arr.h"
 #include "ft_operation.h"
+#include <stdio.h>
 
-int	ft_is_sort(t_array *array)
+int	ft_is_sort(t_vector *array)
 {
 	size_t	i;
+	long	tmp1;
+	long	tmp2;
 
 	i = 0;
 	while (i < array->size - 1)
 	{
-		if (*(long *)array->data[i] > *(long *)array->data[i + 1])
+		ft_vec_get(array, i, &tmp1);
+		ft_vec_get(array, i + 1, &tmp2);
+		if (tmp1 > tmp2)
 			return (0);
 		i++;
 	}

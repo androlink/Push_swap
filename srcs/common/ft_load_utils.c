@@ -6,47 +6,53 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 06:09:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 17:00:14 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/06 22:07:21 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arr.h"
+#include "vector.h"
 
-static void	*dup_num(void *value)
+static size_t	count_greater(t_vector *values, long val)
 {
-	long	*nval;
-
-	nval = malloc(sizeof(long));
-	if (nval == NULL)
-		return (NULL);
-	*nval = *(long *)value;
-	return (nval);
-}
-
-int	normalizer(t_array **array)
-{
+	size_t	count;
+	long	tmp1;
 	size_t	i;
-	size_t	j;
-	long	value;
-	t_array	*norm_arr;
 
-	norm_arr = ft_arr_map(*array, dup_num, free);
-	if (norm_arr == NULL)
-		return (-1);
+	count = 0;
 	i = 0;
-	while (i < norm_arr->size)
+	while (i < values->size)
 	{
-		value = 0;
-		j = 0;
-		while (j < norm_arr->size)
-		{
-			if (*(long *)norm_arr->data[i] > *(long *)norm_arr->data[j])
-				value++;
-			j++;
-		}
-		*(long *)(*array)->data[i] = value;
+		ft_vec_get(values, i, &tmp1);
+		if (val > tmp1)
+			count++;
 		i++;
 	}
-	ft_arr_free(&norm_arr, free);
+	return (count);
+}
+
+int	normalizer(t_vector **values)
+{
+	size_t		i;
+	long		value;
+	long		tmp;
+	t_vector	*dup_values;
+
+	dup_values = ft_vec_new((*values)->elem_size);
+	if (dup_values == NULL)
+		return (-1);
+	i = 0;
+	while (i < (*values)->size)
+	{
+		ft_vec_get(*values, i, &tmp);
+		value = count_greater(*values, tmp);
+		if (ft_vec_append(dup_values, &value) == 0)
+		{
+			ft_vec_free(&dup_values);
+			return (0);
+		}
+		i++;
+	}
+	ft_vec_free(values);
+	*values = dup_values;
 	return (1);
 }

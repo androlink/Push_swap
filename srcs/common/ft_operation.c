@@ -6,16 +6,17 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:37 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 04:40:02 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 17:05:06 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_operation.h"
+#include "vector.h"
 
-static int	ft_op_rotate(t_array *arr);
-static int	ft_op_revrot(t_array *arr);
-static int	ft_op_swap(t_array *arr);
-static int	ft_op_push(t_array *arr1, t_array *arr2);
+static int	ft_op_rotate(t_vector *arr);
+static int	ft_op_revrot(t_vector *arr);
+static int	ft_op_swap(t_vector *arr);
+static int	ft_op_push(t_vector *arr1, t_vector *arr2);
 
 int	ft_run_op(t_sort *ptr, t_operator op)
 {
@@ -38,47 +39,52 @@ int	ft_run_op(t_sort *ptr, t_operator op)
 	return (-1);
 }
 
-static int	ft_op_rotate(t_array *arr)
+static int	ft_op_rotate(t_vector *arr)
 {
-	int	*tmp;
+	long	tmp;
 
 	if (arr->size < 2)
 		return (0);
-	tmp = ft_arr_shift(arr);
-	ft_arr_push(arr, tmp);
+	ft_vec_shift(arr, &tmp);
+	ft_vec_push(arr, &tmp);
 	return (1);
 }
 
-static int	ft_op_revrot(t_array *arr)
+static int	ft_op_revrot(t_vector *arr)
 {
-	int	*tmp;
+	long	tmp;
 
 	if (arr->size <= 1)
 		return (0);
-	tmp = ft_arr_pop(arr);
-	ft_arr_unshift(arr, tmp);
+	ft_vec_pop(arr, &tmp);
+	ft_vec_unshift(arr, &tmp);
 	return (1);
 }
 
-static int	ft_op_swap(t_array *arr)
+static int	ft_op_swap(t_vector *arr)
 {
-	int	*p;
+	long	p;
 
 	if (arr->size <= 1)
 		return (0);
-	p = arr->data[0];
-	arr->data[0] = arr->data[1];
-	arr->data[1] = p;
+	p = ((long *)arr->data)[0];
+	((long *)arr->data)[0] = ((long *)arr->data)[1];
+	((long *)arr->data)[1] = p;
 	return (1);
 }
-
-static int	ft_op_push(t_array *arr1, t_array *arr2)
+#include <stdio.h>
+void	print_stack(t_vector *stack, const char *name);
+static int	ft_op_push(t_vector *arr1, t_vector *arr2)
 {
-	int	*tmp;
+	long	tmp;
 
 	if (arr2->size == 0)
 		return (0);
-	tmp = ft_arr_shift(arr2);
-	ft_arr_unshift(arr1, tmp);
+	// print_stack(arr1, "arr1 before");
+	// print_stack(arr2, "arr2 before");
+	ft_vec_shift(arr2, &tmp);
+	ft_vec_unshift(arr1, &tmp);
+	// print_stack(arr1, "arr1 after");
+	// print_stack(arr2, "arr2 after");
 	return (1);
 }

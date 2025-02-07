@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:11:53 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 18:40:25 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 17:10:06 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ size_t	ft_get_dist(t_array *array, size_t index)
 	return (index);
 }
 
-ssize_t	ft_find_value(t_array *arr, int value)
+ssize_t	ft_find_value(t_vector *stack, int value)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < arr->size)
+	while (i < stack->size)
 	{
-		if (*(long *)arr->data[i] == value)
+		if (((long *)stack->data)[i] == value)
 			return (i);
 		i++;
 	}

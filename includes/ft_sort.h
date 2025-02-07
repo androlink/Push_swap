@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:26:34 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/30 15:19:06 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/06 18:58:55 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 # define FT_SORT_H
 
 # include "arr.h"
+# include "vector.h"
 
 typedef struct s_sort
 {
-	t_array	*stack_a;
-	t_array	*stack_b;
-	t_array	*instruction;
+	t_vector	*stack_a;
+	t_vector	*stack_b;
+	t_array		*instruction;
 }	t_sort;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:08:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/31 18:54:45 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/06 22:23:32 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,27 @@
 #include "ft_utils.h"
 #include "push_swap.h"
 
-void	*ft_pdup(void *ptr)
+t_vector	*dup_numset(t_vector *values)
 {
-	return (ptr);
+	t_vector	*dup_val;
+
+	dup_val = malloc(sizeof(t_vector));
+	if (dup_val != NULL)
+	{
+		dup_val->elem_size = values->elem_size;
+		dup_val->capacity = values->size;
+		dup_val->size = values->size;
+		dup_val->data = malloc(dup_val->elem_size * dup_val->size);
+		if (dup_val->data == NULL)
+		{
+			free(dup_val);
+			return (NULL);
+		}
+		ft_memcpy(dup_val->data,
+			values->data,
+			dup_val->size * dup_val->elem_size);
+	}
+	return (dup_val);
 }
 
 static void	free_sort(t_sort *sort)
@@ -24,21 +42,23 @@ static void	free_sort(t_sort *sort)
 	if (sort->instruction != NULL)
 		ft_arr_free(&sort->instruction, NULL);
 	if (sort->stack_a != NULL)
-		ft_arr_free(&sort->stack_a, NULL);
+		ft_vec_free(&sort->stack_a);
 	if (sort->stack_b != NULL)
-		ft_arr_free(&sort->stack_b, NULL);
+		ft_vec_free(&sort->stack_b);
 	sort->instruction = NULL;
 	sort->stack_b = NULL;
 	sort->stack_a = NULL;
 }
 
-static t_sort	get_sort(t_array *num_set)
+static t_sort	get_sort(t_vector *num_set)
 {
 	t_sort	sort;
 
-	sort.stack_a = ft_arr_map(num_set, ft_pdup, NULL);
-	sort.stack_b = ft_arr_new(num_set->capacity);
+	sort.stack_a = dup_numset(num_set);
+	sort.stack_b = dup_numset(num_set);
 	sort.instruction = ft_arr_new(20);
+	if (sort.stack_b != NULL)
+		sort.stack_b->size = 0;
 	if (sort.instruction == NULL
 		|| sort.stack_a == NULL
 		|| sort.stack_b == NULL)
@@ -46,7 +66,7 @@ static t_sort	get_sort(t_array *num_set)
 	return (sort);
 }
 
-t_array	*ft_sort(t_array *num_set, int (*fsort)(t_sort *))
+t_array	*ft_sort(t_vector *num_set, int (*fsort)(t_sort *))
 {
 	t_array	*clean_result;
 	t_array	*merged_result;

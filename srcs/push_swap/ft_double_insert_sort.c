@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2024/02/01 01:26:25 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 18:22:41 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "ft_utils.h"
 #include "ft_sort.h"
 #include "push_swap.h"
+#include <stdio.h>
+
+void	print_stack(t_vector *stack, const char *name);
 
 int	ft_double_insert_sort(t_sort *sort)
 {
@@ -23,20 +26,20 @@ int	ft_double_insert_sort(t_sort *sort)
 	if (ft_run_op(sort, PB))
 		if (ft_add_operator(sort->instruction, PB) == -1)
 			return (-1);
-	while (sort->stack_a->size)
+	while (sort->stack_a->size > 0)
 	{
 		n = ft_find_value(sort->stack_a,
-				*(long *)sort->stack_b->data[sort->stack_b->size - 1] - 1);
+				((long *)sort->stack_b->data)[sort->stack_b->size - 1] - 1);
 		tmp_n = ft_find_value(sort->stack_a,
-				*(long *)sort->stack_b->data[0] + 1);
+				((long *)sort->stack_b->data)[0] + 1);
 		if (ft_get_dist(sort->stack_a, n) > ft_get_dist(sort->stack_a, tmp_n))
 			n = tmp_n;
-		if (ft_goto_a(sort, n))
+		if (ft_goto_a(sort, n) == -1)
 			return (-1);
 		if (ft_run_op(sort, PB))
 			if (ft_add_operator(sort->instruction, PB) == -1)
 				return (-1);
-		if (*(long *)sort->stack_b->data[0] < *(long *)sort->stack_b->data[1])
+		if (((long *)sort->stack_b->data)[0] < ((long *)sort->stack_b->data)[1])
 			if (ft_run_op(sort, RB))
 				if (ft_add_operator(sort->instruction, RB) == -1)
 					return (-1);
