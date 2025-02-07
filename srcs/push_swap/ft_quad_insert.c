@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2024/02/01 01:05:55 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:20:23 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_quad_insert(t_sort *sort)
 {
 	t_cost	best_cost;
 
-	if (ft_dump_a(sort))
+	if (ft_dump_a(sort) == -1)
 		return (-1);
 	if (ft_run_op(sort, PA))
 		if (ft_add_operator(sort->instruction, PA) == -1)

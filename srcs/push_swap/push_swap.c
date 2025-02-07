@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:01:23 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/07 22:19:53 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include "ft_printf.h"
 
 static void	ft_print_best_result(t_array *results);
+
+void	on_fail(int where)
+{
+	ft_putstr_fd("Fail on ", 2);
+	ft_putnbr_fd(where, 2);
+	ft_putendl_fd("", 2);
+}
 
 int	main(int ac, char **av)
 {
@@ -37,6 +44,8 @@ int	main(int ac, char **av)
 		result = ft_sort(ps.number_set, f_list[i]);
 		if (result != NULL)
 			ft_arr_push(ps.results, result);
+		else
+			on_fail(i);
 		i++;
 	}
 	ft_print_best_result(ps.results);
