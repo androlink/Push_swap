@@ -29,6 +29,7 @@ CMN_DEPS	=	$(CMN_PATH:%.c=$(DDIR)/%.d)
 PS_DIR		=	push_swap
 
 PS_FILES	=	push_swap.c
+PS_FILES	+=	ft_run_sort.c
 PS_FILES	+=	ft_radix_sort.c
 PS_FILES	+=	ft_double_insert_sort.c
 PS_FILES	+=	ft_resolve.c
