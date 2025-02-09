@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 19:46:37 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:23:32 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:07:26 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_run_op(t_sort *ptr, t_operator op)
 
 static int	ft_op_rotate(t_vector *arr)
 {
-	long	tmp;
+	int	tmp;
 
 	if (arr->size < 2)
 		return (0);
@@ -52,7 +52,7 @@ static int	ft_op_rotate(t_vector *arr)
 
 static int	ft_op_revrot(t_vector *arr)
 {
-	long	tmp;
+	int	tmp;
 
 	if (arr->size <= 1)
 		return (0);
@@ -63,19 +63,19 @@ static int	ft_op_revrot(t_vector *arr)
 
 static int	ft_op_swap(t_vector *arr)
 {
-	long	p;
+	int	p;
 
 	if (arr->size <= 1)
 		return (0);
-	p = ((long *)arr->data)[0];
-	((long *)arr->data)[0] = ((long *)arr->data)[1];
-	((long *)arr->data)[1] = p;
+	p = ((int *)arr->data)[0];
+	((int *)arr->data)[0] = ((int *)arr->data)[1];
+	((int *)arr->data)[1] = p;
 	return (1);
 }
 
 static int	ft_op_push(t_vector *arr1, t_vector *arr2)
 {
-	long	tmp;
+	int	tmp;
 
 	if (arr2->size == 0)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:17:40 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:24:19 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:10:59 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	ps_stalin(t_sort *sort)
 	i = 0;
 	while (i < s_a->size - 1)
 	{
-		if (((long *)s_a->data)[i] > ((long *)s_a->data)[i + 1]
-			&& ((unsigned long *)s_a->data)[i] != s_a->size - 1)
+		if (((int *)s_a->data)[i] > ((int *)s_a->data)[i + 1]
+			&& ((unsigned int *)s_a->data)[i] != s_a->size - 1)
 		{
 			if (ft_goto_a(sort, i + 1) == -1)
 				return (-1);

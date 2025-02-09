@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:11:53 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 17:10:06 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:12:23 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ ssize_t	ft_find_value(t_vector *stack, int value)
 	i = 0;
 	while (i < stack->size)
 	{
-		if (((long *)stack->data)[i] == value)
+		if (((int *)stack->data)[i] == value)
 			return (i);
 		i++;
 	}

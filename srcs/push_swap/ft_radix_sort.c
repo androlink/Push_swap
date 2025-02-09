@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:15:27 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:23:49 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:10:34 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_radix_sort(t_sort *sort)
 		j = sort->stack_a->size;
 		while (j > 0)
 		{
-			if (((long *)sort->stack_a->data)[0] & flag)
+			if (((int *)sort->stack_a->data)[0] & flag)
 			{
 				if (ft_run_op(sort, RA))
 					if (ft_add_operator(sort->instruction, RA) == -1)

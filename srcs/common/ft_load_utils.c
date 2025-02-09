@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 06:09:13 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/06 22:07:21 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:05:49 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static size_t	count_greater(t_vector *values, long val)
 int	normalizer(t_vector **values)
 {
 	size_t		i;
-	long		value;
+	int			value;
 	long		tmp;
 	t_vector	*dup_values;
 
-	dup_values = ft_vec_new((*values)->elem_size);
+	dup_values = ft_vec_new(sizeof(int));
 	if (dup_values == NULL)
 		return (-1);
 	i = 0;

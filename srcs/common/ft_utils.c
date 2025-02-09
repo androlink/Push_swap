@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 14:56:35 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:08:25 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 int	ft_is_sort(t_vector *array)
 {
 	size_t	i;
-	long	tmp1;
-	long	tmp2;
+	int		tmp1;
+	int		tmp2;
 
 	i = 0;
 	while (i < array->size - 1)

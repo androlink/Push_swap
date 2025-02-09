@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 21:56:33 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:10:21 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "ft_quad_insert_with_pivot.h"
 #include "push_swap.h"
 
-static int		push_value_pivot(t_sort *sort, long pivot);
-static size_t	get_pot_index(t_vector *array, long value);
+static int		push_value_pivot(t_sort *sort, int pivot);
+static size_t	get_pot_index(t_vector *array, int value);
 
 int	ft_quad_insert_with_pivot(t_sort *sort)
 {
 	t_cost	best_cost;
-	long	pivot;
+	int		pivot;
 
 	pivot = sort->stack_a->size;
 	if (push_value_pivot(sort, (pivot * 1) / 2) == -1)
@@ -69,45 +69,45 @@ t_cost	get_cost(t_sort *sort, size_t index)
 
 	dist.index_b = index;
 	dist.index_a = get_pot_index(sort->stack_a,
-			((long *)sort->stack_b->data)[index]);
+			((int *)sort->stack_b->data)[index]);
 	dist.cost = ft_get_dist(sort->stack_a, dist.index_a);
 	dist.cost += ft_get_dist(sort->stack_b, dist.index_b);
 	return (dist);
 }
 
-static size_t	get_pot_index(t_vector *array, long value)
+static size_t	get_pot_index(t_vector *array, int value)
 {
 	size_t	i;
-	long	n_val;
+	int		n_val;
 
 	i = 0;
-	n_val = __LONG_MAX__;
+	n_val = __INT32_MAX__;
 	while (i < array->size)
 	{
-		if (((long *)array->data)[i] > value
-			&& ((long *)array->data)[i] < n_val)
-			n_val = ((long *)array->data)[i];
+		if (((int *)array->data)[i] > value
+			&& ((int *)array->data)[i] < n_val)
+			n_val = ((int *)array->data)[i];
 		i++;
 	}
-	if (n_val == __LONG_MAX__)
+	if (n_val == __INT32_MAX__)
 	{
-		n_val = ((long *)array->data)[0];
+		n_val = ((int *)array->data)[0];
 		i = 0;
 		while (++i < array->size)
-			if (((long *)array->data)[i] < n_val)
-				n_val = ((long *)array->data)[i];
+			if (((int *)array->data)[i] < n_val)
+				n_val = ((int *)array->data)[i];
 	}
 	return (ft_find_value(array, n_val));
 }
 
-static int	push_value_pivot(t_sort *sort, long pivot)
+static int	push_value_pivot(t_sort *sort, int pivot)
 {
 	size_t	i;
 
 	i = sort->stack_a->size;
 	while (i > 0)
 	{
-		if (((long *)sort->stack_a->data)[0] < pivot)
+		if (((int *)sort->stack_a->data)[0] < pivot)
 		{
 			if (ft_run_op(sort, RA))
 				if (ft_add_operator(sort->instruction, RA) == -1)
