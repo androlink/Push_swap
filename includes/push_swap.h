@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 17:11:35 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 18:50:04 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include "vector.h"
 # include "ft_sort.h"
+
+# define IGNORE_DOUBLE_INSERT 1
+# define VERBOSE_RESULT 1
 
 typedef struct s_push_swap
 {
@@ -49,5 +52,6 @@ int			ft_dump_b(t_sort *sort);
 int			ft_dump_a(t_sort *sort);
 
 void		ft_print_result(t_array *result);
+int			ft_run_sort(t_push_swap *ps, const t_sortf fsort);
 
 #endif

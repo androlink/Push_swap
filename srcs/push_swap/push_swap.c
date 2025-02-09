@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:19:53 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 18:24:59 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,12 @@
 
 static void	ft_print_best_result(t_array *results);
 
-void	on_fail(int where)
-{
-	ft_putstr_fd("Fail on ", 2);
-	ft_putnbr_fd(where, 2);
-	ft_putendl_fd("", 2);
-}
-
 int	main(int ac, char **av)
 {
-	t_push_swap		ps;
-	t_array			*result;
 	const t_sortf	f_list[] = {&ft_sort_3, &ft_radix_sort,
 		&ft_quad_insert_with_pivot, &ft_quad_insert,
 		&ft_double_insert_sort, &ps_stalinsort};
+	t_push_swap		ps;
 	size_t			i;
 
 	if (ac < 2)
@@ -41,11 +33,7 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < sizeof(f_list) / sizeof(*f_list))
 	{
-		result = ft_sort(ps.number_set, f_list[i]);
-		if (result != NULL)
-			ft_arr_push(ps.results, result);
-		else
-			on_fail(i);
+		ft_run_sort(&ps, f_list[i]);
 		i++;
 	}
 	ft_print_best_result(ps.results);

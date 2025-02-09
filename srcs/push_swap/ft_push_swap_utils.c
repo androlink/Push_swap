@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 22:41:05 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/06 17:31:10 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 18:25:58 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_push_swap	ft_ps_get(int ac, char **av)
 	ps.number_set = ft_load(ac, av);
 	if (ps.number_set == NULL)
 		return (ps);
-	ps.results = ft_arr_new(10);
+	ps.results = ft_arr_new(20);
 	if (ps.results == NULL)
 		ft_vec_free(&ps.number_set);
 	return (ps);
