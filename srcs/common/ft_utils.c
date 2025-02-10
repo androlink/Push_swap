@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:23:54 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/10 14:58:43 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_get_op_str(t_operator op)
 int	ft_add_operator(t_vector *instruction, t_operator op)
 {
 	if (instruction->capacity == instruction->size)
-		if (ft_vec_resize(instruction, instruction->capacity + 100) == 0)
+		if (ft_vec_resize(instruction, (instruction->capacity | 2) * 10) == 0)
 			return (-1);
 	ft_vec_append(instruction, &op);
 	return (1);
