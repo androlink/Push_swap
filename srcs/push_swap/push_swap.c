@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 18:24:59 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:43:27 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ void	ft_ps_exit(t_push_swap *ps, int exit_val)
 
 static void	ft_print_best_result(t_array *results)
 {
-	size_t	i;
-	t_array	*result;
+	size_t		i;
+	t_vector	*result;
 
 	i = 0;
 	result = NULL;
 	while (i < results->size)
 	{
 		if (result == NULL)
-			result = (t_array *)results->data[i];
+			result = (t_vector *)results->data[i];
 		if (result->size > ((t_array *)(results->data[i]))->size)
 		{
-			result = (t_array *)(results->data[i]);
+			result = (t_vector *)(results->data[i]);
 		}
 		i++;
 	}
@@ -70,7 +70,7 @@ static void	ft_print_best_result(t_array *results)
 	ft_print_result(result);
 }
 
-void	ft_print_result(t_array *result)
+void	ft_print_result(t_vector *result)
 {
 	size_t	i;
 
@@ -78,7 +78,7 @@ void	ft_print_result(t_array *result)
 	while (i < result->size)
 	{
 		if (ft_printf("%s\n",
-				ft_get_op_str(*(t_operator *)result->data[i])) == -1)
+				ft_get_op_str(((t_operator *)result->data)[i])) == -1)
 			return ;
 		i++;
 	}

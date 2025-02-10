@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:08:25 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/09 23:23:54 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ char	*ft_get_op_str(t_operator op)
 	return (op_list[op]);
 }
 
-int	ft_add_operator(t_array *instruction, t_operator op)
+int	ft_add_operator(t_vector *instruction, t_operator op)
 {
-	if (instruction->capacity <= instruction->size)
-		if (ft_arr_resize(instruction, instruction->capacity + 100) == -1)
+	if (instruction->capacity == instruction->size)
+		if (ft_vec_resize(instruction, instruction->capacity + 100) == 0)
 			return (-1);
-	ft_arr_push(instruction, ft_get_op(op));
+	ft_vec_append(instruction, &op);
 	return (1);
 }
