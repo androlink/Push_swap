@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 01:08:13 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/06 22:23:32 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/10 11:39:49 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_vector	*dup_numset(t_vector *values)
 static void	free_sort(t_sort *sort)
 {
 	if (sort->instruction != NULL)
-		ft_arr_free(&sort->instruction, NULL);
+		ft_vec_free(&sort->instruction);
 	if (sort->stack_a != NULL)
 		ft_vec_free(&sort->stack_a);
 	if (sort->stack_b != NULL)
@@ -56,7 +56,7 @@ static t_sort	get_sort(t_vector *num_set)
 
 	sort.stack_a = dup_numset(num_set);
 	sort.stack_b = dup_numset(num_set);
-	sort.instruction = ft_arr_new(20);
+	sort.instruction = ft_vec_new(sizeof(t_operator));
 	if (sort.stack_b != NULL)
 		sort.stack_b->size = 0;
 	if (sort.instruction == NULL
@@ -66,11 +66,11 @@ static t_sort	get_sort(t_vector *num_set)
 	return (sort);
 }
 
-t_array	*ft_sort(t_vector *num_set, int (*fsort)(t_sort *))
+t_vector	*ft_sort(t_vector *num_set, int (*fsort)(t_sort *))
 {
-	t_array	*clean_result;
-	t_array	*merged_result;
-	t_sort	sort;
+	t_vector	*clean_result;
+	t_vector	*merged_result;
+	t_sort		sort;
 
 	sort = get_sort(num_set);
 	if (sort.instruction == NULL)
@@ -83,7 +83,7 @@ t_array	*ft_sort(t_vector *num_set, int (*fsort)(t_sort *))
 		if (clean_result != NULL)
 		{
 			merged_result = ft_merge_op(clean_result);
-			ft_arr_free(&clean_result, NULL);
+			ft_vec_free(&clean_result);
 		}
 	}
 	free_sort(&sort);
