@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:08:40 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/11 15:25:09 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdio.h>
 
 void	print_stack(t_vector *stack, const char *name);
-int	ft_double_insert_sort_brain(t_sort *sort);
+int		ft_double_insert_sort_brain(t_sort *sort);
 
 int	ft_double_insert_sort(t_sort *sort)
 {
