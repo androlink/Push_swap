@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 00:10:13 by gcros             #+#    #+#             */
-/*   Updated: 2024/02/01 01:26:57 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/11 14:47:57 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_apply_op(t_sort *sort)
 	i = 0;
 	while (i < sort->instruction->size)
 	{
-		if (ft_check_op(sort, *(t_operator *)sort->instruction->data[i]) == -1)
+		if (ft_check_op(sort, ((t_operator *)sort->instruction->data)[i]) == -1)
 			return (-1);
 		i++;
 	}

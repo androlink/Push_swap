@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 23:18:36 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/30 15:18:33 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/11 14:49:18 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 static t_operator	*get_next_operator(void);
 t_operator			str_to_operator(char *strop);
 
-t_array	*ft_get_operation(void)
+t_vector	*ft_get_operation(void)
 {
-	t_array		*op_list;
-	t_operator	*tmp;
+	t_vector		*op_list;
+	t_operator		*tmp;
 
-	op_list = ft_arr_new(20);
+	op_list = ft_vec_new(sizeof(t_operator));
 	if (op_list == NULL)
 		return (NULL);
 	tmp = get_next_operator();
@@ -32,7 +32,7 @@ t_array	*ft_get_operation(void)
 	{
 		if (*tmp == NONE || ft_add_operator(op_list, *tmp) == -1)
 		{
-			ft_arr_free(&op_list, NULL);
+			ft_vec_free(&op_list);
 			return (NULL);
 		}
 		tmp = get_next_operator();
