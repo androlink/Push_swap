@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:08:34 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/10 14:58:43 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 17:58:55 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int	ft_is_sort(t_vector *array)
 	int		tmp2;
 
 	i = 0;
-	while (i < array->size - 1)
+	while (i + 1 < array->size)
 	{
-		ft_vec_get(array, i, &tmp1);
-		ft_vec_get(array, i + 1, &tmp2);
+		if (ft_vec_get(array, i, &tmp1) == 0)
+			return (0);
+		if (ft_vec_get(array, i + 1, &tmp2) == 0)
+			return (0);
 		if (tmp1 > tmp2)
 			return (0);
 		i++;
@@ -45,6 +47,7 @@ int	ft_add_operator(t_vector *instruction, t_operator op)
 	if (instruction->capacity == instruction->size)
 		if (ft_vec_resize(instruction, (instruction->capacity | 2) * 10) == 0)
 			return (-1);
-	ft_vec_append(instruction, &op);
+	if (ft_vec_append(instruction, &op) == 0)
+		return (-1);
 	return (1);
 }

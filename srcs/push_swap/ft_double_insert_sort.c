@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/11 15:25:09 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 00:09:36 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_double_insert_sort_brain(t_sort *sort)
 	size_t	n;
 	size_t	tmp_n;
 
-	if (ft_run_op(sort, PB))
+	if (ft_run_op(sort, PB) == 1)
 		if (ft_add_operator(sort->instruction, PB) == -1)
 			return (-1);
 	while (sort->stack_a->size > 0)
@@ -44,11 +44,11 @@ int	ft_double_insert_sort_brain(t_sort *sort)
 			n = tmp_n;
 		if (ft_goto_a(sort, n) == -1)
 			return (-1);
-		if (ft_run_op(sort, PB))
+		if (ft_run_op(sort, PB) == 1)
 			if (ft_add_operator(sort->instruction, PB) == -1)
 				return (-1);
 		if (((int *)sort->stack_b->data)[0] < ((int *)sort->stack_b->data)[1])
-			if (ft_run_op(sort, RB))
+			if (ft_run_op(sort, RB) == 1)
 				if (ft_add_operator(sort->instruction, RB) == -1)
 					return (-1);
 	}

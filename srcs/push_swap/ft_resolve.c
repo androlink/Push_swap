@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/10 11:38:56 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 18:55:46 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static inline int	ft_merge_brain(t_vector *inst,
 	t_vector *tmp)
 {
 	t_operator	op_tmp;
+	t_operator	void_op;
 
 	ft_vec_pop(inst, &op_tmp);
 	ft_vec_push(result, &op_tmp);
@@ -45,10 +46,10 @@ static inline int	ft_merge_brain(t_vector *inst,
 		op_tmp = ft_get_merge_op(ft_get_last_op(result),
 				ft_get_last_op(inst));
 		if (op_tmp == NONE)
-			return (1);
+			break ;
+		ft_vec_pop(inst, &void_op);
+		ft_vec_pop(result, &void_op);
 		ft_vec_push(tmp, &op_tmp);
-		ft_vec_pop(inst, &op_tmp);
-		ft_vec_pop(result, &op_tmp);
 	}
 	while (tmp->size > 0)
 	{
@@ -85,7 +86,7 @@ int	ft_dump_b(t_sort *sort)
 {
 	while (sort->stack_b->size > 0)
 	{
-		if (ft_run_op(sort, PA))
+		if (ft_run_op(sort, PA) == 1)
 			if (ft_add_operator(sort->instruction, PA) == -1)
 				return (-1);
 	}
@@ -96,7 +97,7 @@ int	ft_dump_a(t_sort *sort)
 {
 	while (sort->stack_a->size > 0)
 	{
-		if (ft_run_op(sort, PB))
+		if (ft_run_op(sort, PB) == 1)
 			if (ft_add_operator(sort->instruction, PB) == -1)
 				return (-1);
 	}

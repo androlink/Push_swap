@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:17:40 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:10:59 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 18:03:11 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ps_stalinsort(t_sort *sort)
 
 	if (ps_stalin(sort) == -1)
 		return (-1);
-	if (ft_run_op(sort, PA))
+	if (ft_run_op(sort, PA) == 1)
 		if (ft_add_operator(sort->instruction, PA) == -1)
 			return (-1);
 	while (sort->stack_b->size > 0)
@@ -31,7 +31,7 @@ int	ps_stalinsort(t_sort *sort)
 		if (ft_goto_a(sort, best_cost.index_a) == -1
 			|| ft_goto_b(sort, best_cost.index_b) == -1)
 			return (-1);
-		if (ft_run_op(sort, PA))
+		if (ft_run_op(sort, PA) == 1)
 			if (ft_add_operator(sort->instruction, PA) == -1)
 				return (-1);
 	}
@@ -53,10 +53,10 @@ int	ps_stalin(t_sort *sort)
 		{
 			if (ft_goto_a(sort, i + 1) == -1)
 				return (-1);
-			if (ft_run_op(sort, PB))
+			if (ft_run_op(sort, PB) == 1)
 				if (ft_add_operator(sort->instruction, PB) == -1)
 					return (-1);
-			if (ft_run_op(sort, RRA))
+			if (ft_run_op(sort, RRA) == 1)
 				if (ft_add_operator(sort->instruction, RRA) == -1)
 					return (-1);
 			i = 0;

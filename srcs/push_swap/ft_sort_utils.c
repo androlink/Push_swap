@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:11:53 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:12:23 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 00:10:25 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_goto_a(t_sort *sort, size_t pos)
 	}
 	while (pos-- > 0)
 	{
-		if (ft_run_op(sort, op))
+		if (ft_run_op(sort, op) == 1)
 			if (ft_add_operator(sort->instruction, op) == -1)
 				return (-1);
 	}
@@ -43,7 +43,7 @@ int	ft_goto_b(t_sort *sort, size_t pos)
 	}
 	while (pos-- > 0)
 	{
-		if (ft_run_op(sort, op))
+		if (ft_run_op(sort, op) == 1)
 			if (ft_add_operator(sort->instruction, op) == -1)
 				return (-1);
 	}

@@ -6,16 +6,35 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:10:21 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 20:44:54 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_operation.h"
 #include "ft_quad_insert_with_pivot.h"
 #include "push_swap.h"
+#include "ft_utils.h"
+#include "put.h"
 
 static int		push_value_pivot(t_sort *sort, int pivot);
 static size_t	get_pot_index(t_vector *array, int value);
+
+void	print_stack(t_vector *stack, const char *name)
+{
+	size_t	i;
+
+	ft_putstr_fd((char *)name, 2);
+	i = 0;
+	while (i < stack->size)
+	{
+		ft_putnbr_fd(((int *)stack->data)[i], 2);
+		ft_putstr_fd(", ", 2);
+		i++;
+	}
+	ft_putendl_fd("", 2);
+	ft_putnbr_fd(ft_is_sort(stack), 2);
+	ft_putendl_fd("", 2);
+}
 
 int	ft_quad_insert_with_pivot(t_sort *sort)
 {
@@ -27,7 +46,7 @@ int	ft_quad_insert_with_pivot(t_sort *sort)
 		return (-1);
 	if (push_value_pivot(sort, ((pivot * 0) / 2) - 1) == -1)
 		return (-1);
-	if (ft_run_op(sort, PA))
+	if (ft_run_op(sort, PA) == 1)
 		if (ft_add_operator(sort->instruction, PA) == -1)
 			return (-1);
 	while (sort->stack_b->size > 0)
@@ -36,7 +55,7 @@ int	ft_quad_insert_with_pivot(t_sort *sort)
 		if (ft_goto_a(sort, best_cost.index_a) == -1
 			|| ft_goto_b(sort, best_cost.index_b) == -1)
 			return (-1);
-		if (ft_run_op(sort, PA))
+		if (ft_run_op(sort, PA) == 1)
 			if (ft_add_operator(sort->instruction, PA) == -1)
 				return (-1);
 	}
@@ -84,8 +103,8 @@ static size_t	get_pot_index(t_vector *array, int value)
 	n_val = __INT32_MAX__;
 	while (i < array->size)
 	{
-		if (((int *)array->data)[i] > value
-			&& ((int *)array->data)[i] < n_val)
+		if (((int *)array->data)[i] < n_val
+			&& ((int *)array->data)[i] > value)
 			n_val = ((int *)array->data)[i];
 		i++;
 	}
@@ -109,12 +128,12 @@ static int	push_value_pivot(t_sort *sort, int pivot)
 	{
 		if (((int *)sort->stack_a->data)[0] < pivot)
 		{
-			if (ft_run_op(sort, RA))
+			if (ft_run_op(sort, RA) == 1)
 				if (ft_add_operator(sort->instruction, RA) == -1)
 					return (-1);
 		}
 		else
-			if (ft_run_op(sort, PB))
+			if (ft_run_op(sort, PB) == 1)
 				if (ft_add_operator(sort->instruction, PB) == -1)
 					return (-1);
 		i--;

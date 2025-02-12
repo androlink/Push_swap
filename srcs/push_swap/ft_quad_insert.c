@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:20:23 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/12 00:09:53 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_quad_insert(t_sort *sort)
 
 	if (ft_dump_a(sort) == -1)
 		return (-1);
-	if (ft_run_op(sort, PA))
+	if (ft_run_op(sort, PA) == 1)
 		if (ft_add_operator(sort->instruction, PA) == -1)
 			return (-1);
 	while (sort->stack_b->size > 0)
@@ -31,7 +31,7 @@ int	ft_quad_insert(t_sort *sort)
 		if (ft_goto_a(sort, best_cost.index_a) == -1
 			|| ft_goto_b(sort, best_cost.index_b) == -1)
 			return (-1);
-		if (ft_run_op(sort, PA))
+		if (ft_run_op(sort, PA) == 1)
 			if (ft_add_operator(sort->instruction, PA) == -1)
 				return (-1);
 	}
