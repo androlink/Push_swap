@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/12 18:57:13 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/13 16:42:21 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,11 @@ void	ft_print_result(t_vector *result)
 	size_t	i;
 
 	i = 0;
-	ft_putnbr_fd(result->size, 2);
-	ft_putendl_fd(" operations", 2);
+	if (VERBOSE_RESULT)
+	{
+		ft_putnbr_fd(result->size, 2);
+		ft_putendl_fd(" operations", 2);
+	}
 	while (i < result->size)
 	{
 		if (ft_printf("%s\n",
