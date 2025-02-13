@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/12 00:09:53 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/13 16:39:00 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,19 @@
 
 int	ft_quad_insert(t_sort *sort)
 {
-	t_cost	best_cost;
 
 	if (ft_dump_a(sort) == -1)
 		return (-1);
 	if (ft_run_op(sort, PA) == 1)
 		if (ft_add_operator(sort->instruction, PA) == -1)
 			return (-1);
+	return (turc_side_sort(sort));
+}
+
+int	turc_side_sort(t_sort *sort)
+{
+	t_cost	best_cost;
+
 	while (sort->stack_b->size > 0)
 	{
 		best_cost = get_best_move(sort);

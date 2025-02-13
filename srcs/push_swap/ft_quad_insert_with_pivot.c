@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/12 20:44:54 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/13 16:39:58 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	print_stack(t_vector *stack, const char *name)
 
 int	ft_quad_insert_with_pivot(t_sort *sort)
 {
-	t_cost	best_cost;
 	int		pivot;
 
 	pivot = sort->stack_a->size;
@@ -49,19 +48,7 @@ int	ft_quad_insert_with_pivot(t_sort *sort)
 	if (ft_run_op(sort, PA) == 1)
 		if (ft_add_operator(sort->instruction, PA) == -1)
 			return (-1);
-	while (sort->stack_b->size > 0)
-	{
-		best_cost = get_best_move(sort);
-		if (ft_goto_a(sort, best_cost.index_a) == -1
-			|| ft_goto_b(sort, best_cost.index_b) == -1)
-			return (-1);
-		if (ft_run_op(sort, PA) == 1)
-			if (ft_add_operator(sort->instruction, PA) == -1)
-				return (-1);
-	}
-	if (ft_goto_a(sort, ft_find_value(sort->stack_a, 0)) == -1)
-		return (-1);
-	return (1);
+	return (turc_side_sort(sort));
 }
 
 t_cost	get_best_move(t_sort *sort)

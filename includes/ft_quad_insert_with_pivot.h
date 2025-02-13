@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 18:01:02 by gcros             #+#    #+#             */
-/*   Updated: 2024/01/23 17:08:41 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/13 16:38:23 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ typedef struct s_cost
 
 t_cost	get_cost(t_sort *sort, size_t index);
 t_cost	get_best_move(t_sort *sort);
+int	turc_side_sort(t_sort *sort);
 
 #endif
