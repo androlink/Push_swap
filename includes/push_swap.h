@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/13 17:38:46 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:32:43 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "vector.h"
 # include "ft_sort.h"
+#include "arr.h"
 
 # define IGNORE_DOUBLE_INSERT 0
 # define VERBOSE_RESULT 1

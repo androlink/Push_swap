@@ -6,13 +6,12 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 19:07:21 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/07 22:23:16 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:31:07 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 #include "mem.h"
-#include <stdio.h>
 
 int	ft_vec_push(t_vector *vector, void *elem)
 {

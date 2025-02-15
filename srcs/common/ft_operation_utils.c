@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 20:07:12 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/10 09:10:44 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:33:43 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ t_operator	ft_get_merge_op(t_operator op1, t_operator op2)
 	return (NONE);
 }
 
-t_operator	ft_get_last_op(t_vector *array)
+t_operator	ft_get_last_op(t_vector *values)
 {
 	t_operator	op;
 
 	op = NONE;
-	ft_vec_get(array, array->size - 1, &op);
+	ft_vec_get(values, values->size - 1, &op);
 	return (op);
 }

@@ -6,18 +6,17 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:06:24 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/06 17:42:48 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:33:37 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arr.h"
 #include "str.h"
 #include "num.h"
 #include "ft_load.h"
 #include "vector.h"
 
 static int	get_value(const char *str, long *out);
-static int	fill_value(char *str, t_vector *array);
+static int	fill_value(char *str, t_vector *values);
 
 t_vector	*ft_load(int ac, char **av)
 {

@@ -6,15 +6,13 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/15 18:28:17 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:31:38 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arr.h"
 #include "ft_utils.h"
 #include "ft_sort.h"
 #include "push_swap.h"
-#include <stdio.h>
 
 int		ft_double_insert_sort_brain(t_sort *sort);
 

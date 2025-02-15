@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:11:53 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/15 18:29:08 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:34:26 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	ft_goto_b(t_sort *sort, size_t pos)
 	return (1);
 }
 
-size_t	ft_get_dist(t_array *array, size_t index)
+size_t	ft_get_dist(t_vector *values, size_t index)
 {
-	if (index > array->size / 2)
-		return (array->size - index);
+	if (index > values->size / 2)
+		return (values->size - index);
 	return (index);
 }
 

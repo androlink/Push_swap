@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/15 18:25:43 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:34:17 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "put.h"
 
 static int		push_value_pivot(t_sort *sort, int pivot);
-static size_t	get_pot_index(t_vector *array, int value);
+static size_t	get_pot_index(t_vector *values, int value);
 
 int	ft_quad_insert_with_pivot(t_sort *sort)
 {
@@ -64,29 +64,29 @@ t_cost	get_cost(t_sort *sort, size_t index)
 	return (dist);
 }
 
-static size_t	get_pot_index(t_vector *array, int value)
+static size_t	get_pot_index(t_vector *values, int value)
 {
 	size_t	i;
 	int		n_val;
 
 	i = 0;
 	n_val = __INT32_MAX__;
-	while (i < array->size)
+	while (i < values->size)
 	{
-		if (((int *)array->data)[i] < n_val
-			&& ((int *)array->data)[i] > value)
-			n_val = ((int *)array->data)[i];
+		if (((int *)values->data)[i] < n_val
+			&& ((int *)values->data)[i] > value)
+			n_val = ((int *)values->data)[i];
 		i++;
 	}
 	if (n_val == __INT32_MAX__)
 	{
-		n_val = ((int *)array->data)[0];
+		n_val = ((int *)values->data)[0];
 		i = 0;
-		while (++i < array->size)
-			if (((int *)array->data)[i] < n_val)
-				n_val = ((int *)array->data)[i];
+		while (++i < values->size)
+			if (((int *)values->data)[i] < n_val)
+				n_val = ((int *)values->data)[i];
 	}
-	return (ft_find_value(array, n_val));
+	return (ft_find_value(values, n_val));
 }
 
 static int	push_value_pivot(t_sort *sort, int pivot)

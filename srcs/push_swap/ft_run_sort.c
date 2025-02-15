@@ -6,11 +6,10 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:05:15 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/15 18:27:54 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:32:17 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "arr.h"
 #include "vector.h"
 #include "put.h"
 #include "push_swap.h"
