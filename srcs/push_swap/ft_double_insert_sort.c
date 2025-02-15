@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 03:42:45 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/12 00:09:36 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:28:17 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	print_stack(t_vector *stack, const char *name);
 int		ft_double_insert_sort_brain(t_sort *sort);
 
 int	ft_double_insert_sort(t_sort *sort)

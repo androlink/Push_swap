@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:34:04 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/13 16:39:58 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:25:43 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,6 @@
 
 static int		push_value_pivot(t_sort *sort, int pivot);
 static size_t	get_pot_index(t_vector *array, int value);
-
-void	print_stack(t_vector *stack, const char *name)
-{
-	size_t	i;
-
-	ft_putstr_fd((char *)name, 2);
-	i = 0;
-	while (i < stack->size)
-	{
-		ft_putnbr_fd(((int *)stack->data)[i], 2);
-		ft_putstr_fd(", ", 2);
-		i++;
-	}
-	ft_putendl_fd("", 2);
-	ft_putnbr_fd(ft_is_sort(stack), 2);
-	ft_putendl_fd("", 2);
-}
 
 int	ft_quad_insert_with_pivot(t_sort *sort)
 {

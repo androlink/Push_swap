@@ -6,11 +6,13 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 21:11:53 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/12 00:10:25 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:29:08 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_operation.h"
+#include "put.h"
+#include "ft_utils.h"
 
 int	ft_goto_a(t_sort *sort, size_t pos)
 {
@@ -69,4 +71,21 @@ ssize_t	ft_find_value(t_vector *stack, int value)
 		i++;
 	}
 	return (-1);
+}
+
+void	print_stack(t_vector *stack, const char *name)
+{
+	size_t	i;
+
+	ft_putstr_fd((char *)name, 2);
+	i = 0;
+	while (i < stack->size)
+	{
+		ft_putnbr_fd(((int *)stack->data)[i], 2);
+		ft_putstr_fd(", ", 2);
+		i++;
+	}
+	ft_putendl_fd("", 2);
+	ft_putnbr_fd(ft_is_sort(stack), 2);
+	ft_putendl_fd("", 2);
 }

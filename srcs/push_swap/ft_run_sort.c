@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:05:15 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/09 23:47:30 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/15 18:27:54 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "put.h"
 #include "push_swap.h"
 
-void	print_info(t_sortf fsort, int has_fail, t_vector *result);
+static void	print_info(t_sortf fsort, int has_fail, t_vector *result);
 
 int	ft_run_sort(t_push_swap *ps, const t_sortf fsort)
 {
@@ -49,7 +49,7 @@ const char	*get_name(t_sortf fsort)
 	return ("unknown_sort");
 }
 
-void	print_info(t_sortf fsort, int has_fail, t_vector *result)
+static void	print_info(t_sortf fsort, int has_fail, t_vector *result)
 {
 	const char	*name = get_name(fsort);
 
