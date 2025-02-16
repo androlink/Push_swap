@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:04:43 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/15 18:32:46 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/16 21:50:01 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	ft_print_best_result(t_array *results)
 	{
 		if (result == NULL)
 			result = (t_vector *)results->data[i];
-		if (result->size > ((t_array *)(results->data[i]))->size)
+		if (result->size > ((t_vector *)(results->data[i]))->size)
 		{
 			result = (t_vector *)(results->data[i]);
 		}
