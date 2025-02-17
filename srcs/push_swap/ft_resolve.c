@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 12:56:58 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/12 18:55:46 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/17 08:35:22 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ t_vector	*ft_merge_op(t_vector *inst)
 	tmp = ft_vec_new(inst->elem_size);
 	if (result == NULL || tmp == NULL || ft_vec_resize(result, inst->size) == 0
 		||ft_vec_resize(tmp, inst->size) == 0)
-		return (ft_vec_free(&tmp), ft_vec_free(&result), NULL);
+	{
+		ft_vec_free(&tmp);
+		ft_vec_free(&result);
+		return (NULL);
+	}
 	while (inst->size > 0)
 		ft_merge_brain(inst, result, tmp);
-	return (ft_vec_free(&tmp), result);
+	ft_vec_free(&tmp);
+	return (result);
 }
 
 static inline int	ft_merge_brain(t_vector *inst,

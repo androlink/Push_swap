@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:06:24 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/15 18:33:37 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/17 08:34:14 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ t_vector	*ft_load(int ac, char **av)
 	while (i < ac)
 	{
 		if (fill_value(av[i], values) == -1)
-			return (ft_vec_free(&values), NULL);
+		{
+			ft_vec_free(&values);
+			return (NULL);
+		}
 		i++;
 	}
 	if (ft_check_dup(values) || normalizer(&values) == -1)
@@ -62,6 +65,12 @@ int	ft_check_dup(t_vector *values)
 	return (0);
 }
 
+static int	free_fill(char **strs, int ret_val)
+{
+	ft_strsfree(strs);
+	return (ret_val);
+}
+
 static int	fill_value(char *str, t_vector *values)
 {
 	char	**strs;
@@ -75,19 +84,19 @@ static int	fill_value(char *str, t_vector *values)
 	while (strs[i] != NULL)
 		i++;
 	if (i == 0)
-		return (ft_strsfree(strs), -1);
+		return (free_fill(strs, -1));
 	if (values->capacity <= values->size + i)
 		if (ft_vec_resize(values, values->size + i + 1) == -1)
-			return (ft_strsfree(strs), -1);
+			return (free_fill(strs, -1));
 	i = 0;
 	while (strs[i] != NULL)
 	{
 		if (get_value(strs[i], &value))
-			return (ft_strsfree(strs), -1);
+			return (free_fill(strs, -1));
 		ft_vec_append(values, &value);
 		i++;
 	}
-	return (ft_strsfree(strs), 1);
+	return (free_fill(strs, 1));
 }
 
 static int	get_value(const char *str, long *out)
