@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:06:02 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/17 08:43:32 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/19 20:51:37 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "arr.h"
 
 # define IGNORE_DOUBLE_INSERT 0
-# define VERBOSE_RESULT 0
+# define VERBOSE_RESULT 1
 
 typedef struct s_push_swap
 {

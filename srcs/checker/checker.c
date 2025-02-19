@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 11:05:08 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/11 14:50:01 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/19 21:01:41 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 static t_sort	*checker_init(int ac, char **av);
 static void		free_sort(t_sort *sort);
+void			print_stack(t_vector *stack, const char *name);
 
 int	main(int ac, char **av)
 {
@@ -58,7 +59,7 @@ static t_vector	*get_stackb(size_t size)
 {
 	t_vector	*v;
 
-	v = ft_vec_new(sizeof(long));
+	v = ft_vec_new(sizeof(int));
 	if (v)
 		if (ft_vec_resize(v, size) == 0)
 			ft_vec_free(&v);

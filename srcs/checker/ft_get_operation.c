@@ -6,7 +6,7 @@
 /*   By: gcros <gcros@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 23:18:36 by gcros             #+#    #+#             */
-/*   Updated: 2025/02/11 14:49:18 by gcros            ###   ########.fr       */
+/*   Updated: 2025/02/19 20:24:42 by gcros            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ft_operation.h"
 #include "str.h"
 #include "ft_utils.h"
+#include "put.h"
 
 static t_operator	*get_next_operator(void);
 t_operator			str_to_operator(char *strop);
@@ -78,4 +79,21 @@ t_operator	str_to_operator(char *strop)
 	if (ft_strncmp(strop, "rrr\n", 4) == 0)
 		return (RRR);
 	return (NONE);
+}
+
+void	print_stack(t_vector *stack, const char *name)
+{
+	size_t	i;
+
+	ft_putstr_fd((char *)name, 2);
+	i = 0;
+	while (i < stack->size)
+	{
+		ft_putnbr_fd(((int *)stack->data)[i], 2);
+		ft_putstr_fd(", ", 2);
+		i++;
+	}
+	ft_putendl_fd("", 2);
+	ft_putnbr_fd(ft_is_sort(stack), 2);
+	ft_putendl_fd("", 2);
 }
